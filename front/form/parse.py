@@ -1,4 +1,5 @@
 from re import match
+from html import escape
 from jinja2 import Template
 from pandas import read_excel, notnull
 
@@ -18,8 +19,6 @@ def xlsx_to_dict():
     for row in df.itertuples():
         if row[1] is not None:
             category = row[1]
-        if row[2] is not None:
-            category = f'{category} - {row[2]}'
         label, qtypes = row[3], row[7]
         comments = '' if row[8] is None else row[8]
         choices = (row[4], row[5], row[6])
@@ -27,7 +26,7 @@ def xlsx_to_dict():
         if label is not None and not choices_available and question is None:
             m = match(r'(?P<id>\d*)\. (?P<label>.*)', label)
             if m is not None:
-                qid, label = m.group('id'), m.group('label')
+                qid, label = m.group('id'), escape(m.group('label'))
                 question = {
                     'type': 'Q',
                     'id': f'question:{qid}',
@@ -44,7 +43,7 @@ def xlsx_to_dict():
                 'type': 'N',
                 'label': label,
                 'choices': [{
-                    'label': str(choice),
+                    'label': escape(str(choice)),
                     'val': i,
                     'id': f'answer:{i}'
                 } for i, choice in enumerate(choices)],
@@ -80,14 +79,15 @@ def xlsx_to_dict():
             if nested is None:
                 m = match(
                     r'(?P<label>.*) >> response field to be added', str(label))
-                aid = len(question['answers'])
                 if m is None:
+                    aid = len(question['answers'])
                     question['answers'].append({
-                        'label': str(label),
+                        'label': escape(str(label)),
                         'val': aid,
                         'id': f'answer:{aid}'
                     })
                 else:
+                    aid = 10 + len(question['texts'])
                     question['texts'].append({
                         'label': m.group('label'),
                         'val': aid,

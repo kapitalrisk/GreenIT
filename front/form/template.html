@@ -1,6 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
+  <meta charset="utf-8">
+  <title>Design4Green</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -58,14 +61,14 @@
       <div class="question {{q['id']}}">
         {% for txt in q['texts'] %}
         <div>
-          <label for={{txt['id']}}>{{txt['label']}}</label>
-          <input type="text" id="{{txt['id']}}" name="{{q['id']}}">
+          <label for="{{q['id']}}:{{txt['id']}}">{{txt['label']}}</label>
+          <input type="text" id="{{q['id']}}:{{txt['id']}}" name="{{q['id']}}">
         </div>
         {% endfor %}
         {% for answer in q['answers'] %}
         <div>
-          <input type="{{q['input_type']}}" id={{answer['id']}} name="{{q['id']}}" value="{{answer['val']}}">
-          <label for={{answer['id']}}>{{answer['label']}}</label>
+          <input type="{{q['input_type']}}" id="{{q['id']}}:{{answer['id']}}" name="{{q['id']}}" value="{{answer['val']}}">
+          <label for="{{q['id']}}:{{answer['id']}}">{{answer['label']}}</label>
         </div>
         {% endfor %}
         {% if q['text_input'] %}
@@ -87,10 +90,10 @@
         <tbody>
           {% for qq in q['questions'] %}
           <tr>
-            <td>{{qq['label']}}<td>
+            <td>{{qq['label']}}</td>
               {% for choice in q['choices'] %}
             <td>
-              <input type={{q['input_type']}} id="{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
+              <input type="{{q['input_type']}}" id="{{qq['id']}}:{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
             </td>
             {% endfor %}
           </tr>
@@ -106,6 +109,6 @@
     {% endfor %}
   </form>
 
-  <body>
+  </body>
 
 </html>
