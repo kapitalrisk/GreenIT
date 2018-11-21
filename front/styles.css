@@ -1,6 +1,6 @@
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif
 }
 
@@ -37,16 +37,12 @@ body {
 .categorie-bubble {
     height: 60px;
     width: 60px;
-    background-color: blue;
     border-radius: 50%;
     display: flex;
     margin: auto;
-    border: solid;
-    border-color: grey;
-    background-image: url(img/infrastructures-informatiques.png);
-    background-position:50% 50%;
-    background-repeat:no-repeat; 
-    
+    border: solid grey;
+    background: blue url(img/infrastructures-informatiques.png) no-repeat 50% 50%;
+
 }
 
 .question-header-container {
@@ -91,8 +87,7 @@ body {
     border-radius: 50%;
     display: flex;
     margin: auto;
-    border: solid;
-    border-color: grey;
+    border: solid grey;
     z-index: 1;
 }
 
