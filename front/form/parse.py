@@ -8,6 +8,8 @@ QUESTION_TYPES = {
     'multiple choice': 'MC'
 }
 
+PREFIX = False
+
 
 def xlsx_to_dict():
     df = read_excel('green_sheet.xlsx')
@@ -29,12 +31,15 @@ def xlsx_to_dict():
                 question = {
                     'type': 'Q',
                     'id': f'question:{qid}',
-                    'label': label,
+                    'label': f'{qid}. {label}' if PREFIX else label,
                     'answers': [],
                     'texts': [],
                     'comments': comments
                 }
         if choices_available:
+            m = match(r'(?P<id>\d*)\. (?P<label>.*)', label)
+            if m is not None and not PREFIX:
+                label = m.group('label')
             nested = {
                 'type': 'N',
                 'label': label,
