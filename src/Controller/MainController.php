@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -25,6 +26,6 @@ class MainController
     {
         if ($slug === null)
             $slug = "null";
-        return new Response("The slug is \"$slug\"");
+        return new JSONResponse("The slug is \"$slug\"");
     }
 }

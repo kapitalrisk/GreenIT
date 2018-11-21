@@ -29,15 +29,20 @@ class FormAnswer
     private $question_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FormQuestion", inversedBy="answers")
-     * @ORM\JoinColumn(name="q_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="answers")
+     * @ORM\JoinColumn(name="user", referencedColumnName="id")
      */
-    private $question;
+    private $user;
 
     /**
      * @ORM\Column(name="answ_id", type="integer", nullable=true)
      */
     private $answer_id;
+
+    /**
+    * @ORM\Column(name="content", type="string", nullable=true)
+    */
+    private $content;
 
     /**
      * @return mixed
@@ -84,20 +89,38 @@ class FormAnswer
     }
 
     /**
-     * @param mixed $question
+     * @param mixed $content
      * @return FormAnswer
      */
-    public function setQuestion($question)
+    public function setContent($content)
     {
-        $this->question = $question;
+        $this->content = $content;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getQuestion()
+    public function getContent()
     {
-        return $this->question;
+        return $this->content;
+    }
+
+    /**
+     * @param mixed $user
+     * @return FormAnswer
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

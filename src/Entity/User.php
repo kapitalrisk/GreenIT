@@ -24,11 +24,6 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(name="form", type="integer")
-     */
-    private $form_id;
-
-    /**
      * @var bool $completed
      * @ORM\Column(name="completed", type="boolean", options={"default" : 0})
      */
@@ -40,29 +35,16 @@ class User
     private $token;
 
     /**
+     * @ORM\OneToMany(targetEntity="FormAnswer", mappedBy="user")
+     */
+    private $answers;
+
+    /**
      * @return int
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFormId()
-    {
-        return $this->form_id;
-    }
-
-    /**
-     * @param mixed $form_id
-     * @return User
-     */
-    public function setFormId($form_id)
-    {
-        $this->form_id = $form_id;
-        return $this;
     }
 
     /**
@@ -99,5 +81,23 @@ class User
     {
         $this->token = $token;
         return $this;
+    }
+
+    /**
+     * @param mixed $answers
+     * @return User
+     */
+    public function setAnswers($answers)
+    {
+        $this->answers = $answers;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
     }
 }
