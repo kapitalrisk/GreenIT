@@ -29,6 +29,12 @@ class FormAnswer
     private $question_id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="FormQuestion", inversedBy="answers")
+     * @ORM\JoinColumn(name="q_id", referencedColumnName="id")
+     */
+    private $question;
+
+    /**
      * @ORM\Column(name="answ_id", type="integer", nullable=true)
      */
     private $answer_id;
@@ -75,5 +81,23 @@ class FormAnswer
     {
         $this->question_id = $question_id;
         return $this;
+    }
+
+    /**
+     * @param mixed $question
+     * @return FormAnswer
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 }

@@ -35,7 +35,12 @@ class User
     private $completed;
 
     /**
-     * @return mixed
+     * @ORM\Column(name="token", type="string", options={"default" : ""})
+     */
+    private $token;
+
+    /**
+     * @return int
      */
     public function getId()
     {
@@ -75,6 +80,24 @@ class User
     public function setCompleted($completed)
     {
         $this->completed = $completed;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     * @return User
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
         return $this;
     }
 }
