@@ -35,7 +35,7 @@ class User
     private $token;
 
     /**
-     * @ORM\OneToMany(targetEntity="FormAnswer", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Answer", mappedBy="user")
      */
     private $answers;
 
