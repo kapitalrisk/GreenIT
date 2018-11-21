@@ -1,57 +1,111 @@
-<form name="questionnaire">
-  {% for category, questions in data.items() %}
-  <h2>{{ category }}</h2>
-  <div class="category color-{{category|lower|replace(' ', '-')}}">
-    {% for q in questions %}
-    <h3>{{ q['label'] }}</h3>
-    {% if q['comments'] != '' %}
-    <q>{{q['comments']}}</q>
-    {% endif %}
-    {% if q['type'] == 'Q' %}
-    <div class="question {{q['id']}}">
-      {% for txt in q['texts'] %}
-      <div>
-        <label for={{txt['id']}}>{{txt['label']}}</label>
-        <input type="text" id="{{txt['id']}}" name="{{q['id']}}">
+<html>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>
+      Design4Green Hackaton 2018
+    </h1>
+  </header>
+  <form class='categorie-container'>
+    {% for category, questions in data.items() %}
+    <div class='categorie-header-container'>
+      <div class='left-container'>
+        <div class='sup-container'>
+          <span class='left-bar'></span>
+        </div>
+        <div class='sup-container'>
+          <span class='categorie-bubble'></span>
+        </div>
       </div>
-      {% endfor %}
-      {% for answer in q['answers'] %}
-      <div>
-        <input type="{{q['input_type']}}" id={{answer['id']}} name="{{q['id']}}" value="{{answer['val']}}">
-        <label for={{answer['id']}}>{{answer['label']}}</label>
+      <div class='categorie-title-container'>
+        <h2>
+          {{ category }}
+        </h2>
       </div>
-      {% endfor %}
-      {% if q['text_input'] %}
-      <div>
-        <input type="text" id="text:{{q['id']}}" name="{{q['id']}}">
-      </div>
-      {% endif %}
     </div>
-    {% else %}
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          {% for choice in q['choices'] %}
-          <th>{{choice['label']}}</th>
-          {% endfor %}
-        </tr>
-      </thead>
-      <tbody>
-        {% for qq in q['questions'] %}
-        <tr>
-          <td>{{qq['label']}}<td>
-              {% for choice in q['choices'] %}
-              <td>
-                <input type={{q['input_type']}} id="{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
-              </td>
-              {% endfor %}
-        </tr>
+    <div class="category color-{{category|lower|replace(' ', '-')}}">
+      {% for q in questions %}
+        <div class='question-header-container'>
+            <div class='left-container'>
+                <div class='sup-container'>
+                    <span class='left-bar'></span>
+                </div>
+                <div class='sup-container'>
+                    <span class='question-bubble'></span>
+                </div>
+            </div>
+            <div class='question-title-container'>
+                <h2>
+                    {{ q['label'] }}
+                </h2>
+            </div>
+        </div>
+      <!--
+      {% if q['comments'] != '' %}
+      <q>{{q['comments']}}</q>
+      {% endif %} -->
+
+        <div class='answer-container'>
+            <div class="left-container">
+                <div class='left-bar'></div>
+            </div>
+            <div>
+                {% if q['type'] == 'Q' %}
+      <div class="question {{q['id']}}">
+        {% for txt in q['texts'] %}
+        <div>
+          <label for={{txt['id']}}>{{txt['label']}}</label>
+          <input type="text" id="{{txt['id']}}" name="{{q['id']}}">
+        </div>
         {% endfor %}
-      </tbody>
-    </table>
-    {% endif %}
+        {% for answer in q['answers'] %}
+        <div>
+          <input type="{{q['input_type']}}" id={{answer['id']}} name="{{q['id']}}" value="{{answer['val']}}">
+          <label for={{answer['id']}}>{{answer['label']}}</label>
+        </div>
+        {% endfor %}
+        {% if q['text_input'] %}
+        <div>
+          <input type="text" id="text:{{q['id']}}" name="{{q['id']}}">
+        </div>
+        {% endif %}
+      </div>
+      {% else %}
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            {% for choice in q['choices'] %}
+            <th>{{choice['label']}}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for qq in q['questions'] %}
+          <tr>
+            <td>{{qq['label']}}<td>
+              {% for choice in q['choices'] %}
+            <td>
+              <input type={{q['input_type']}} id="{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
+            </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+            </div>
+        </div>
+      
+      {% endfor %}
+    </div>
     {% endfor %}
-  </div>
-  {% endfor %}
-</form>
+  </form>
+
+  <body>
+
+</html>
