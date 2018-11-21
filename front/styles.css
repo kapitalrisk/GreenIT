@@ -43,6 +43,10 @@ body {
     margin: auto;
     border: solid;
     border-color: grey;
+    background-image: url(img/infrastructures-informatiques.png);
+    background-position:50% 50%;
+    background-repeat:no-repeat; 
+    
 }
 
 .question-header-container {
@@ -103,32 +107,78 @@ body {
     height: 100%;
 }
 
+/** 
+    -----------------
+        color 
+    -----------------
+**/
+
 .color-infrastructures-informatiques {
-    background-color: #0C5884;
+    color: #0C5884;
 }
+
 .color-datacenter {
-    background-color: #2C86C1;
+    color: #2C86C1;
 }
+
 .color-impression {
-    background-color: #EEC22D;
+    color: #EEC22D;
 }
 
 .color-fin-de-vie {
-    background-color: #EF5746;
+    color: #EF5746;
 }
 
 .color-achats {
-    background-color: #00BCD2;
+    color: #00BCD2;
 }
 
 .color-gouvernance {
-    background-color: #8D60A9;
+    color: #8D60A9;
 }
 
 .color-poste-de-travail {
-    background-color: #E6822D;
+    color: #E6822D;
 }
 
 .color-applications {
+    color: #E75894; 
+}
+
+/** 
+    -----------------
+        background-color 
+    -----------------
+**/
+
+.bcolor-infrastructures-informatiques {
+    background-color: #0C5884;
+}
+
+.bcolor-datacenter {
+    background-color: #2C86C1;
+}
+
+.bcolor-impression {
+    background-color: #EEC22D;
+}
+
+.bcolor-fin-de-vie {
+    background-color: #EF5746;
+}
+
+.bcolor-achats {
+    background-color: #00BCD2;
+}
+
+.bcolor-gouvernance {
+    background-color: #8D60A9;
+}
+
+.bcolor-poste-de-travail {
+    background-color: #E6822D;
+}
+
+.bcolor-applications {
     background-color: #E75894; 
 }
