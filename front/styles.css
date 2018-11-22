@@ -1,5 +1,6 @@
 :root {
     --primary-color: rgb(225, 225, 225);
+    --always-white: rgb(225, 225, 225);
     --accent-color: #009688;
     --black-background: #222222;
     --grey-text: rgb(225, 225, 225);
@@ -30,7 +31,7 @@ li {
 }
 
 .header-bar {
-    height: 10%;
+    height: 120px;
     min-height: 120px;
     display: flex;
     align-content: center;
@@ -373,4 +374,27 @@ body {
 
 .label-checkbox::before {
     border-radius: 2.5%;
+}
+
+.float{
+    position: fixed;
+	width:50px;
+	height:50px;
+	top:160px;
+	right:40px;
+	background-color: var(--always-white);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px rgb(0, 0, 0);
+}
+
+.sunmoon {
+    margin-top: 5px; 
+    width: 40px;
+    height: 40px;
+}
+
+.my-float{
+	margin-top:22px;
 }
