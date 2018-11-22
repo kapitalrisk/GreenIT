@@ -424,9 +424,8 @@ body {
     height: 4.5em;
     background-color: #048a2c;
     color: var(--black-background);
-    border: solid;
     border-radius: 25%;
-    border-color: #048a2c; 
+    border: solid #048a2c;
     font-size: 2em;
 }
 
