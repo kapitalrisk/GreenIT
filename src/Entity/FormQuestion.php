@@ -40,9 +40,10 @@ class FormQuestion
     private $type;
 
     /**
-     * @ORM\Column(name="choices", type="simple_array", options={"default" : ""})
+     * @ORM\Column(name="choices", type="text", options={"default" : ""})
      */
     private $choices;
+    private $_choices = [];
 
     /**
      * @ORM\Column(name="multiple", type="boolean", options={"default" : 0})
@@ -128,7 +129,14 @@ class FormQuestion
      */
     public function getChoices()
     {
-        return $this->choices;
+        if (count($this->_choices) == 0)
+        {
+            $data = explode($this->choices, ';');
+            for ($i = 0; $i < count($data); $i += 2) {
+                $this->_choices[$data[$i]] = $data[$i + 1] === 1;
+            }
+        }
+        return $this->_choices;
     }
 
     /**
