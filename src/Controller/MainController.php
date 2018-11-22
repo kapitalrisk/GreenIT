@@ -23,6 +23,7 @@ class MainController extends Controller
      * @Route("/{slug}", name="index", defaults={"slug": null})
      * @param string $slug
      * @return Response
+     * @throws \Exception
      */
     public function index($slug)
     {

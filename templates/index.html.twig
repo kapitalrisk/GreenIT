@@ -10,7 +10,7 @@
 <body>
 <header>
     <h1>
-        Design4Green Hackaton 2018
+        Design4Green Hackathon 2018
     </h1>
 </header>
 {% set category = "" %}
@@ -62,7 +62,8 @@
                 </div>
                 <div>
                     {% if question.subCategory %}
-                        {% if question.subCategory != subcategory %}
+                        {{ question.content }} SUBCATEGORY (OMG!!!)
+                    {#{% if question.subCategory != subcategory %}
                             {% set subcategory = question.subCategory %}
                             <table>
                                 <thead>
@@ -88,7 +89,7 @@
                                 {% endfor %}
                                 </tbody>
                             </table>
-                        {% endif %}
+                        {% endif %}#}
                     {% else %}
                         <div class="question {{ question.id }}">
                             {% if question.type == 'choice' %}
