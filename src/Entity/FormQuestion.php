@@ -54,6 +54,16 @@ class FormQuestion
      */
     private $expanded;
 
+    /**
+      * @ORM\Column(name="comment", type="string", options={"default" : ""})
+      */
+    private $comment;
+
+    /**
+      * @ORM\Column(name="category", type="string", options={"default" : ""})
+      */
+    private $category;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
