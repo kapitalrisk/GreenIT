@@ -15,12 +15,8 @@
         </div>
     </div>
 
-    {% if question.comment %}
-        <q>{{ question.comment|raw }}</q>
-    {% endif %}
-
     <div class='answer-container'>
         <div class="left-container">
             <div class='left-bar bcolor-{{ category | lower | replace({' ': '-'}) }}'></div>
         </div>
-        <div>
+    <div>

@@ -409,3 +409,9 @@ body {
 .my-float{
 	margin-top:22px;
 }
+
+q {
+    padding: 0.5em 0;
+    color: #888;
+    font-size: 0.9em;
+}
