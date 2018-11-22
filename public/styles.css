@@ -4,6 +4,7 @@
     --accent-color: #009688;
     --black-background: #222222;
     --grey-text: rgb(225, 225, 225);
+    --dim-background: #2a2a2a;
 }
 
 * {
@@ -28,6 +29,16 @@ label {
 
 li {
     list-style: none;
+}
+
+footer {
+    background-color: var(--dim-background);
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    text-align: center;
+    color: #999;
+    font-size: 0.85em;
 }
 
 .header-bar {
@@ -182,7 +193,7 @@ body {
     color: #0C5884;
 }
 
-.color-datacenter {
+.color-workstation {
     color: #2C86C1;
 }
 
@@ -190,20 +201,16 @@ body {
     color: #EEC22D;
 }
 
-.color-energy-consumption {
+.color-energy {
     color: #EF5746;
 }
 
-.color-achats {
-    color: #00BCD2;
+.color-your-compagny {
+    color: rgb(130, 170, 66)
 }
 
 .color-management {
     color: #8D60A9;
-}
-
-.color-poste-de-travail {
-    color: #E6822D;
 }
 
 .color-applications {
@@ -220,7 +227,7 @@ body {
     background-color: #0C5884;
 }
 
-.bcolor-datacenter {
+.bcolor-workstation {
     background-color: #2C86C1;
 }
 
@@ -228,20 +235,16 @@ body {
     background-color: #EEC22D;
 }
 
-.bcolor-energy-consumption {
+.bcolor-energy {
     background-color: #EF5746;
 }
 
-.bcolor-achats {
-    background-color: #00BCD2;
+.bcolor-your-compagny {
+    background-color: rgb(2, 170, 66);
 }
 
 .bcolor-management {
     background-color: #8D60A9;
-}
-
-.bcolor-poste-de-travail {
-    background-color: #E6822D;
 }
 
 .bcolor-applications {
@@ -380,19 +383,28 @@ body {
     position: fixed;
 	width:50px;
 	height:50px;
-	top:160px;
-	right:40px;
+	top:30px;
+	right:30px;
 	background-color: var(--always-white);
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px rgb(0, 0, 0);
 }
-
+.float-bottom {
+    top: auto;
+    bottom: 30px;
+    background-color: var(--accent-color)
+}
 .sunmoon {
     margin-top: 5px; 
     width: 40px;
     height: 40px;
+}
+.sunmoon {
+    margin-top: 10px; 
+    width: 30px;
+    height: 30px;
 }
 
 .my-float{
@@ -416,4 +428,11 @@ body {
     border-radius: 25%;
     border-color: #048a2c; 
     font-size: 2em;
+}
+
+
+q {
+    padding: 0.5em 0;
+    color: #888;
+    font-size: 0.9em;
 }
