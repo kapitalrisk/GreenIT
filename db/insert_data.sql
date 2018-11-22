@@ -86,3 +86,10 @@ INSERT INTO form_question (content, type, choices, multiple, comment, category) 
 INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you prefer the use of recycled paper?', 'ChoiceType', 'Yes, our paper is made from virgin paste;0;Yes, mixed paper;0;Yes, 100% recycled;0;I''m not paying attention;0', 1, '', 'Printing');
 INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you choose certified paper?', 'ChoiceType', 'Yes, FSC;0;Yes, PEFC;0;Yes, Blue Angel;0;Yes, European Label;0;Yes, other >> comment fields to add;0;I''m not paying attention;0', 1, '', 'Printing');
 INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you organize the separate collection of waste paper for recycling?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
+
+UPDATE form_question SET category = 'Your compagny' WHERE id >= 1 AND id <= 10;
+UPDATE form_question SET category = 'System infrastructure' WHERE id >= 11 AND id <= 43;
+UPDATE form_question SET category = 'Management' WHERE id >= 44 AND id <= 49;
+UPDATE form_question SET category = 'System infrastructure' WHERE id >= 50 AND id <= 69;
+UPDATE form_question SET category = 'Energy consumption' WHERE id >= 70 AND id <= 73;
+UPDATE form_question SET category = 'Printing' WHERE id >= 74 AND id <= 88;
