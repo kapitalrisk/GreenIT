@@ -40,42 +40,27 @@ class MainController extends Controller
 
         if ($request->getMethod() == "POST")
         {
-            $result = [];
-            foreach ($_POST as $key => $value)
+            $arrKeys = array_filter($_POST, function ($k) { return $k != ""; }); // get array keys for answered questions
+            $questions = $em->getRepository(FormQuestion::class)->getAnsweredQuestions($arrKeys);
+
+            foreach ($questions as $q)
             {
-                if (!$value)
-                    continue;
-                $id = str_replace('text', '', $key);
-                $result[$id] = [];
-            }
-            foreach ($_POST as $key => $value)
-            {
-                if (!$value)
-                    continue;
-                $id = str_replace('text', '', $key);
-                array_push($result[$id], $value);
-            }
-            print_r($result);
-            /** @var FormQuestion[] $questions */
-            $questions = $em->getRepository(FormQuestion::class)->getAnsweredQuestions($result);
-            foreach ($questions as $question)
-            {
-                $answer = new Answer();
-                $answer->setQuestion($question);
-                $answer->setUser($slug);
-                $value = $result[$question->getId()];
-                if (is_array($value[0]))
+                $res = $em->getRepository(Answer::class)->findOneBy(['question' => $q, 'user' => $slug]);
+                if ($res === null)
                 {
-                    print_r($value[0]);
-                    $answer->setChoice(implode(";", $value[0]));
+                    $res = new Answer();
+                }
+                if (is_array($_POST[$q->getId()]))
+                {
+                    $res->setChoice(join(";", $_POST[$q][0]));
                 }
                 else
                 {
-                    $answer->setChoice($value[0]);
-                    if (isset($value[1]))
-                        $answer->setContent($value[1]);
+                    $res->setQuestion($q);
+                    $res->setUser($slug);
+                    $res->setChoice($_POST[$q->getId()]);
                 }
-                $em->persist($answer);
+                $em->persist($res);
             }
             $em->flush();
             return new Response();
