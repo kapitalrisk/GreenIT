@@ -280,19 +280,7 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-.list {
-  flex: 0 0 10rem;
-}
-.list__item {
-  position: relative;
-}
-.list__item:hover > .label {
-  color: #009688;
-}
-.list__item:hover > .label::before {
-  border: 0.25rem solid #009688;
-  margin-right: 1rem;
-}
+
 .checkbox {
   position: absolute;
   opacity: 0;
@@ -304,7 +292,7 @@ body {
 .checkbox:checked + .label::before {
   margin-right: 1rem;
   border: 0.25rem solid #009688;
-  background: var(--grey-text);
+  background-color: var(--grey-text)
 }
 
 .radio {
@@ -312,15 +300,35 @@ body {
   opacity: 0;
   visibility: hidden;
 }
+
 .radio:checked + .label {
   color: #009688;
 }
+
 .radio:checked + .label::before {
   margin-right: 1rem;
   border: 0.25rem solid #009688;
-  background: var(--grey-text);
+  background-color: var(--grey-text)
 }
 
+
+.label:hover {
+    color: #009688;
+}
+
+.label:hover::before {
+  margin-right: 1rem;
+  border: 0.25rem solid #009688;
+  color: #009688;
+}
+
+.hideable {
+    margin-left: 1em;
+}
+
+.radio:checked + .hideable {
+  opacity: 0;
+}
 
 .label::before {
   display: inline-block;
@@ -340,30 +348,12 @@ body {
 	min-height: 100vh;
 }
 
-.list {
-	flex: 0 0 10rem;
-}
 
-.list__item {
-	position: relative;
-}
-
-.list__item > label:hover {
-    color: var(--accent-color);
-}
-
-.list__item::before > label:hover {
-    border: 0.25rem solid var(--accent-color);
-    margin-right: 1rem;
-}
 
 .radio {
 	position: absolute;
 	opacity: 0;
 	visibility: hidden;
-}
-.radio.label > checked {
-    /**color: var(--accent-color);**/
 }
 
 .radio.label::before > checked {
@@ -447,7 +437,40 @@ body {
     font-size: 2em;
 }
 
+.radio-label-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
 
+
+.radio-table {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.radio-table:checked + .label-table {
+    border-color: var(--accent-color);
+    background-color: var(--grey-text);
+}
+
+.label-table:hover {
+    border-color: var(--accent-color);
+}
+
+.label-table {
+    width: 1em;
+    height: 1em;
+    background: var(--black-background);
+    border-radius: 50%;
+    border: solid;
+    border-color: var(--grey-text);
+}
 q {
     padding: 0.5em 0;
     color: #888;

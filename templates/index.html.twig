@@ -61,9 +61,13 @@
                     <span class='choice-label'>{{ question.content }}</span>
                     {% set i = 0 %}
                     {% for label, textbox in question.choices %}
-                        <input type="{{ type }}"
-                                id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
-                                value="{{ i }}">
+                        <div class="radio-label-container">
+                            <input class="radio-table"
+                                    type="{{ type }}"
+                                    id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
+                                    value="{{ i }}">
+                            <label class="label-table" for="{{ question.id }}:{{ i }}"></label>
+                        </div>
                         {% set i = i + 1 %}
                     {% endfor %}
                 {% else %}
@@ -86,7 +90,7 @@
                                        name="{{ question.id }}" value="{{ i }}">
                                 <label class='label label-{{ type }}' for="{{ question.id }}:{{ i }}">
                                     {{ label }}
-                                    {% if textbox %} : <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ question.id ~ 'text' }}">{% endif %}
+                                    {% if textbox %} <input class="hideable" type="text" id="{{ question.id }}:{{ i }}:text" name="{{ question.id ~ 'text' }}">{% endif %}
                                 </label>
 
                             </div>
