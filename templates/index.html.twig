@@ -35,7 +35,7 @@
     {% for question in questions %}
         {% if subcategory and subcategory != question.subcategory %}
             {% set subcategory = '' %}
-            </tbody></table></div></div></div> {# used to close "question_prelude.html.twig" opened in earlier iteration #}
+            </div></div></div></div> {# used to close "question_prelude.html.twig" opened in earlier iteration #}
         {% endif %}
         {% if question.category != category %}
             {% set category = question.category %}
@@ -46,16 +46,11 @@
                 {% set subcategory = question.subcategory %}
                 {% include "question_prelude.html.twig" %}
                 {% if question.type == 'choice' %}
-                    <table>
-                        <thead>
-                        <tr>
-                            <th></th>
-                            {% for label, textbox in question.choices %}
-                                <th>{{ label }}</th>
-                            {% endfor %}
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <div class='matrix-content matrix-content-{{ question.choices | length + 1 }}'>
+                    <span class='choice-header'></span>
+                    {% for label, textbox in question.choices %}
+                        <span class='choice-header'>{{ label }}</span>
+                    {% endfor %}
                 {% endif %}
             {% else %}
                 {% if question.type == 'choice' %}
@@ -63,26 +58,17 @@
                     {% if question.multiple %}
                         {% set type = "checkbox" %}
                     {% endif %}
-                    <tr>
-                        <td>{{ question.content }}</td>
-                        {% set i = 0 %}
-                        {% for label, textbox in question.choices %}
-                            <td>
-                                <input type="{{ type }}"
-                                       id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
-                                       value="{{ i }}">
-                                {% if textbox %}
-
-                                {% endif %}
-                            </td>
-                            {% set i = i + 1 %}
-                        {% endfor %}
-                    </tr>
+                    <span class='choice-label'>{{ question.content }}</span>
+                    {% set i = 0 %}
+                    {% for label, textbox in question.choices %}
+                        <input type="{{ type }}"
+                                id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
+                                value="{{ i }}">
+                        {% set i = i + 1 %}
+                    {% endfor %}
                 {% else %}
-                    <div>
-                        <label for="{{ question.id }}:{{ i }}">{{ question.content }}</label>
-                        <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"/>
-                    </div>
+                    <label for="{{ question.id }}:{{ i }}">{{ question.content }}</label>
+                    <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"/>
                 {% endif %}
             {% endif %}
         {% else %}
@@ -121,7 +107,7 @@
                         <q><i>{{ question.comment|raw }}</i></q>
                     {% endif %}
                 </div>
-            </div></div></div>
+            </div></div></div> {# DON'T TOUCH THIS #}
         {% endif %}
     {% endfor %}
 </form>

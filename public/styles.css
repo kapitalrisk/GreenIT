@@ -97,9 +97,6 @@ body {
     }
 }
 
-.questionnaire-container {
-}
-
 .question-header-container {
     width: 100%;
     display:flex;
@@ -181,6 +178,26 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+.matrix-content-4 {
+    display: grid;
+    grid-template-columns: auto minmax(4em, 1fr) minmax(4em, 1fr) minmax(4em, 1fr);
+    grid-template-rows: auto;
+}
+
+.matrix-content-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.matrix-content .choice-header {
+    text-align: center;
+    align-content: center;
+}
+.matrix-content span {
+    color: var(--grey-text);
 }
 
 /** 
