@@ -100,3 +100,10 @@ UPDATE form_question SET subcategory = '3' WHERE id >= 31 AND id <= 38;
 UPDATE form_question SET subcategory = '4' WHERE id >= 50 AND id <= 61;
 UPDATE form_question SET subcategory = '5' WHERE id >= 63 AND id <= 69;
 UPDATE form_question SET subcategory = '6' WHERE id >= 78 AND id <= 82;
+
+UPDATE form_question SET type = '', choices = '' WHERE content = 'Can you specify the number of cartridges / toners:';
+INSERT INTO form_question (content, type, choices, multiple, comment, category, subcategory) VALUES
+('Cartbridges used a year', 'TextField', ';1', 0, 'Printing', '', '7'),
+('Cartbridges stored in the average business', 'TextField', ';1', 0, 'Printing', '', '7'),
+('Toners used in a year', 'TextField', ';1', 0, 'Printing', '', '7'),
+('Toners stored in the average business', 'TextField', ';1', 0, 'Printing', '', '7');
