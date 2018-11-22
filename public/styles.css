@@ -436,3 +436,7 @@ q {
     color: #888;
     font-size: 0.9em;
 }
+table input {
+    display: block;
+    margin: auto;
+}
