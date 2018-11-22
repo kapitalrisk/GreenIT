@@ -1,14 +1,31 @@
+:root {
+    --primary-color: #fff;
+    --accent-color: #00968;
+    --black-background: #222222;
+    --grey-text: #AAAAAA;
+}
+
 * {
     padding: 0;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: 'Lato', sans-serif;
 }
+
 
 h1 {
     color: whitesmoke;
     font-weight: bold;
     font-size: 3em;
 }
+h2 {
+    color: var(--grey-text);
+}
+
+label {
+    color: var(--grey-text);
+}
+
+
 
 .header-bar {
     height: 10%;
@@ -25,7 +42,7 @@ header {
 }
 
 body {
-    background-color:whitesmoke;
+    background-color: var(--black-background);
 }
 
 .categorie-container {
@@ -51,7 +68,7 @@ body {
     border-radius: 50%;
     display: flex;
     margin: auto;
-    border: solid white;
+    border: double var(--black-background);
     background: #0C5884 url(img/infrastructures-informatiques.png) no-repeat 50% 50%;
     background-size: 30px;
 }
@@ -98,7 +115,7 @@ body {
     border-radius: 50%;
     display: flex;
     margin: auto;
-    border: solid white;
+    border: double var(--black-background);
     z-index: 1;
 }
 
@@ -187,4 +204,128 @@ body {
 
 .bcolor-applications {
     background-color: #E75894; 
+}
+
+/**
+    -------------
+    
+    -------------
+**/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.list {
+  flex: 0 0 10rem;
+}
+.list__item {
+  position: relative;
+}
+.list__item:hover > .label {
+  color: #009688;
+}
+.list__item:hover > .label::before {
+  border: 0.25rem solid #009688;
+  margin-right: 1rem;
+}
+.radio {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+.radio:checked + .label {
+  color: #009688;
+}
+.radio:checked + .label::before {
+  margin-right: 1rem;
+  border: 0.25rem solid #009688;
+  background: var(--grey-text);
+}
+.label {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  color: #fff;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+.label::before {
+  display: inline-block;
+  content: "";
+  height: 1.125rem;
+  width: 1.125rem;
+  margin-right: 0.625rem;
+  border: 0.5rem solid #fff;
+  border-radius: 50%;
+  transition: all 0.25s linear;
+}
+body {
+	font-family: "Roboto", sans-serif;
+	background: linear-gradient(to right bottom, #1b1b1e, #333);
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.list {
+	flex: 0 0 10rem;
+}
+
+.list__item {
+	position: relative;
+}
+
+.list__item > label:hover {
+    color: var(--accent-color);
+}
+
+.list__item::before > label:hover {
+    border: 0.25rem solid var(--accent-color);
+    margin-right: 1rem;
+}
+
+.radio {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+}
+.radio.label > checked {
+    color: var(--accent-color);
+}
+
+.radio.label::before > checked {
+    margin-right: 0.5rem;
+    border: 0.25rem solid var(--accent-color);
+    background: var(--primary-color);
+}
+
+.label {
+	display: flex;
+	align-items: center;
+	padding: 0.375rem 0;
+	color: var(--primary-color);
+	font-size: .625rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.20s linear;
+}
+
+.label::before {
+	display: inline-block;
+	content: "";
+	height: 0,5625rem;
+	width: 0,0565rem;
+	margin-right: 0.625rem;
+	border: 0.25rem solid var(--primary-color);
+	border-radius: 50%;
+	transition: all 0.25s linear;
 }
