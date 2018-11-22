@@ -83,11 +83,16 @@
                         {% if question.multiple %}
                             {% set type = "checkbox" %}
                         {% endif %}
+                        {% set name = question.id %}
+                        {% if question.multiple %}
+                            {% set name = name ~ "[]" %}
+                        {% endif %}
                         {% set i = 0 %}
                         {% for label, textbox in question.choices %}
+
                             <div>
                                 <input class='{{ type }}' type="{{ type }}" id="{{ question.id }}:{{ i }}"
-                                       name="{{ question.id }}" value="{{ i }}">
+                                       name="{{ name }}" value="{{ i }}">
                                 <label class='label label-{{ type }}' for="{{ question.id }}:{{ i }}">
                                     {{ label }}
                                     {% if textbox %} <input class="hideable" type="text" id="{{ question.id }}:{{ i }}:text" name="{{ question.id ~ 'text' }}">{% endif %}

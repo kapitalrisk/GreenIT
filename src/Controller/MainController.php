@@ -9,9 +9,9 @@
 namespace App\Controller;
 
 
+use App\Entity\Answer;
 use App\Entity\FormQuestion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,11 +31,52 @@ class MainController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         if ($slug === null)
-            $slug = bin2hex(random_bytes(8));
+        {
+            do {
+               $slug = bin2hex(random_bytes(8));
+           } while ($em->getRepository(Answer::class)->tokenExists($slug));
+            return $this->redirectToRoute("index", ["slug" => $slug]);
+        }
 
         if ($request->getMethod() == "POST")
         {
-            print_r($_POST);
+            $result = [];
+            foreach ($_POST as $key => $value)
+            {
+                if (!$value)
+                    continue;
+                $id = str_replace('text', '', $key);
+                $result[$id] = [];
+            }
+            foreach ($_POST as $key => $value)
+            {
+                if (!$value)
+                    continue;
+                $id = str_replace('text', '', $key);
+                array_push($result[$id], $value);
+            }
+            print_r($result);
+            /** @var FormQuestion[] $questions */
+            $questions = $em->getRepository(FormQuestion::class)->getAnsweredQuestions($result);
+            foreach ($questions as $question)
+            {
+                $answer = new Answer();
+                $answer->setQuestion($question);
+                $answer->setUser($slug);
+                $value = $result[$question->getId()];
+                if (is_array($value))
+                {
+                    $answer->setChoice(join(";", $value));
+                }
+                else
+                {
+                    $answer->setChoice($value[0]);
+                    if (isset($value[1]))
+                        $answer->setContent($value[1]);
+                }
+                $em->persist($answer);
+            }
+            $em->flush();
         }
         else
         {

@@ -12,7 +12,7 @@ use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\AnswerRepository")
  * @ORM\Table(name="answer", indexes={@ORM\Index(name="question_idx", columns={"question"})})
  */
 class Answer
