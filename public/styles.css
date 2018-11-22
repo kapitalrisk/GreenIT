@@ -116,7 +116,6 @@ body {
     display: flex;
     margin: auto;
     border: double var(--black-background);
-    background: #0C5884 url(img/infrastructures-informatiques.png) no-repeat 50% 50%;
     background-size: 30px;
 }
 
