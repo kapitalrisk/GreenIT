@@ -15,115 +15,121 @@
       </h1>
     </div>
   </header>
-  <div class="introduction">
-    <p>
-      With the support of ADEME, the Ministry of Ecology, Energy and the Sea and the Ministry of Economy and Finance, the association AGIT (Alliance for Green IT)
-      and the eco-organizations of the recycling network of Waste Electrical and Electronic Equipment (WEEE) organize a survey to assess the deposits of computer and
-      office equipment present in companies and more generally on the maturity of companies in France in the use of eco-responsible digital services.
-      The duration of the questionnaire is estimated at 15 minutes if you are able to answer questions directly.
-      You can return at any time on the questionnaire, answer in several times, your previous answers are recorded. In case of modification, only the last answer will be taken into account.
-      You can submit this questionnaire to several people in your organization. All you have to do is simply share the link to the questionnaire.
-    </p>
-  </div>
-  <form name='questionnaire' class='categorie-container'>
-    {% for category, questions in data.items() %}
-    <div class='categorie-header-container'>
-      <div class='left-container'>
-        <div class='sup-container'>
-          <span class='left-bar bcolor-{{ category|lower|replace(" ", "-") }}'></span>
-        </div>
-        <div class='sup-container'>
-          <span class='categorie-bubble bcolor-{{ category|lower|replace(" ", "-") }}'></span>
-        </div>
-      </div>
-      <div class='categorie-title-container'>
-        <h2>
-          {{ category|upper }}
-        </h2>
-      </div>
+  <div class='content'>
+    <div class="introduction">
+      <p>
+        With the support of ADEME, the Ministry of Ecology, Energy and the Sea and the Ministry of Economy and Finance,
+        the association AGIT (Alliance for Green IT) and the eco-organizations of the recycling network of Waste
+        Electrical and Electronic Equipment (WEEE) organize a survey to assess the deposits of computer and office
+        equipment present in companies and more generally on the maturity of companies in France in the use of
+        eco-responsible digital services.  The duration of the questionnaire is estimated at 15 minutes if you are able
+        to answer questions directly.  You can return at any time on the questionnaire, answer in several times, your
+        previous answers are recorded. In case of modification, only the last answer will be taken into account.  You
+        can submit this questionnaire to several people in your organization. All you have to do is simply share the
+        link to the questionnaire.
+      </p>
     </div>
-    <div class="category">
-      {% for q in questions %}
-      <div class='question-header-container'>
+    <form name='questionnaire' class='questionnaire-container'>
+      {% for category, questions in data.items() %}
+      <div class='categorie-header-container'>
         <div class='left-container'>
           <div class='sup-container'>
             <span class='left-bar bcolor-{{ category|lower|replace(" ", "-") }}'></span>
           </div>
           <div class='sup-container'>
-            <span class='question-bubble bcolor-{{ category|lower|replace(" ", "-") }}'></span>
+            <span class='categorie-bubble bcolor-{{ category|lower|replace(" ", "-") }}'></span>
           </div>
         </div>
-        <div class='question-title-container'>
+        <div class='categorie-title-container'>
           <h2>
-            {{ q['label'] }}
+            {{ category|upper }}
           </h2>
         </div>
       </div>
-      <!--
-      {% if q['comments'] != '' %}
-      <q>{{q['comments']}}</q>
-      {% endif %} -->
-
-      <div class='answer-container'>
-        <div class="left-container">
-          <div class='left-bar bcolor-{{ category|lower|replace(" ", "-") }}'></div>
+      <div class="category">
+        {% for q in questions %}
+        <div class='question-header-container'>
+          <div class='left-container'>
+            <div class='sup-container'>
+              <span class='left-bar bcolor-{{ category|lower|replace(" ", "-") }}'></span>
+            </div>
+            <div class='sup-container'>
+              <span class='question-bubble bcolor-{{ category|lower|replace(" ", "-") }}'></span>
+            </div>
+          </div>
+          <div class='question-title-container'>
+            <h2>
+              {{ q['label'] }}
+            </h2>
+          </div>
         </div>
-        <div>
-          {% if q['type'] == 'Q' %}
-          <div class="question {{q['id']}}">
-            {% for txt in q['texts'] %}
-            <div>
-              <label for="{{q['id']}}:{{txt['id']}}">{{txt['label']}}</label>
-              <input type="text" id="{{q['id']}}:{{txt['id']}}" name="{{q['id']}}">
+        <!--
+        {% if q['comments'] != '' %}
+        <q>{{q['comments']}}</q>
+        {% endif %} -->
+
+        <div class='answer-container'>
+          <div class="left-container">
+            <div class='left-bar bcolor-{{ category|lower|replace(" ", "-") }}'></div>
+          </div>
+          <div>
+            {% if q['type'] == 'Q' %}
+            <div class="question {{q['id']}}">
+              {% for txt in q['texts'] %}
+              <div>
+                <label for="{{q['id']}}:{{txt['id']}}">{{txt['label']}}</label>
+                <input type="text" id="{{q['id']}}:{{txt['id']}}" name="{{q['id']}}">
+              </div>
+              {% endfor %}
+                <ul class="list">
+                  {% for answer in q['answers'] %}
+                  <li class="list__item">
+                    <input class="{{q['input_type']}}" type="{{q['input_type']}}" id="{{q['id']}}:{{answer['id']}}" name="{{q['id']}}"
+                      value="{{answer['val']}}">
+                    <label class="label label-{{q['input_type']}}" for="{{q['id']}}:{{answer['id']}}">{{answer['label']}}</label>
+                  </li>
+                  {% endfor %}
+                </ul>
+              {% if q['text_input'] %}
+              <div>
+                <input type="text" id="text:{{q['id']}}" name="{{q['id']}}">
+              </div>
+              {% endif %}
             </div>
-            {% endfor %}
-              <ul class="list">
-                {% for answer in q['answers'] %}
-                <li class="list__item">
-                  <input class="{{q['input_type']}}" type="{{q['input_type']}}" id="{{q['id']}}:{{answer['id']}}" name="{{q['id']}}"
-                    value="{{answer['val']}}">
-                  <label class="label label-{{q['input_type']}}" for="{{q['id']}}:{{answer['id']}}">{{answer['label']}}</label>
-                </li>
+            {% else %}
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  {% for choice in q['choices'] %}
+                  <th><label>{{choice['label']}}</label></th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for qq in q['questions'] %}
+                <tr>
+                  <td><label>{{qq['label']}}</label>
+                  <td>
+                    {% for choice in q['choices'] %}
+                  <td>
+                    <input type="{{q['input_type']}}" id="{{qq['id']}}:{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
+                  </td>
+                  {% endfor %}
+                </tr>
                 {% endfor %}
-              </ul>
-            {% if q['text_input'] %}
-            <div>
-              <input type="text" id="text:{{q['id']}}" name="{{q['id']}}">
-            </div>
+              </tbody>
+            </table>
             {% endif %}
           </div>
-          {% else %}
-          <table>
-            <thead>
-              <tr>
-                <th></th>
-                {% for choice in q['choices'] %}
-                <th><label>{{choice['label']}}</label></th>
-                {% endfor %}
-              </tr>
-            </thead>
-            <tbody>
-              {% for qq in q['questions'] %}
-              <tr>
-                <td><label>{{qq['label']}}</label>
-                <td>
-                  {% for choice in q['choices'] %}
-                <td>
-                  <input type="{{q['input_type']}}" id="{{qq['id']}}:{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
-                </td>
-                {% endfor %}
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-          {% endif %}
         </div>
-      </div>
 
+        {% endfor %}
+      </div>
       {% endfor %}
-    </div>
-    {% endfor %}
-  </form>
+    </form>
+
+  </div>
   <footer>
     <p>
       Thank you for participating in this survey. Your answer is invaluable to us to constitute the most representative sample of the companies in France.

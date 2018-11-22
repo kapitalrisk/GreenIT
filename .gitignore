@@ -13,9 +13,7 @@ vendor/
 *.swo
 *~
 
-<<<<<<< Updated upstream
 # python
 venv
-=======
-venv
->>>>>>> Stashed changes
+index.html
+.python-version
