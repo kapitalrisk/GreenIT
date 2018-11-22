@@ -67,12 +67,15 @@
               <input type="text" id="{{txt['id']}}" name="{{q['id']}}">
             </div>
             {% endfor %}
-            {% for answer in q['answers'] %}
-            <div>
-              <input type="{{q['input_type']}}" id={{answer['id']}} name="{{q['id']}}" value="{{answer['val']}}">
-              <label for={{answer['id']}}>{{answer['label']}}</label>
-            </div>
-            {% endfor %}
+              <ul class="list">
+                {% for answer in q['answers'] %}
+                <li class="list__item">
+                  <input class="{{q['input_type']}}" type="{{q['input_type']}}" id={{answer['id']}} name="{{q['id']}}"
+                    value="{{answer['val']}}">
+                  <label class="label" for="{{answer['id']}}">{{answer['label']}}</label>
+                </li>
+                {% endfor %}
+              </ul>
             {% if q['text_input'] %}
             <div>
               <input type="text" id="text:{{q['id']}}" name="{{q['id']}}">
@@ -92,7 +95,8 @@
             <tbody>
               {% for qq in q['questions'] %}
               <tr>
-                <td>{{qq['label']}}<td>
+                <td><label>{{qq['label']}}</label>
+                <td>
                   {% for choice in q['choices'] %}
                 <td>
                   <input type={{q['input_type']}} id="{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
