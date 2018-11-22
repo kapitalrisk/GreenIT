@@ -21,4 +21,14 @@ class AnswerRepository extends EntityRepository
                     ->setMaxResults(1)
                     ->getQuery()->getResult() === null;
     }
+
+    public function getAnswers($token)
+    {
+        return $this->createQueryBuilder('a')
+                    ->leftJoin('a.question', 'q')
+                    ->addSelect('q')
+                    ->where('a.user = :token')
+                    ->setParameter('token', $token)
+                    ->getQuery()->getResult();
+    }
 }

@@ -64,9 +64,10 @@ class MainController extends Controller
                 $answer->setQuestion($question);
                 $answer->setUser($slug);
                 $value = $result[$question->getId()];
-                if (is_array($value))
+                if (is_array($value[0]))
                 {
-                    $answer->setChoice(join(";", $value));
+                    print_r($value[0]);
+                    $answer->setChoice(implode(";", $value[0]));
                 }
                 else
                 {
@@ -77,10 +78,19 @@ class MainController extends Controller
                 $em->persist($answer);
             }
             $em->flush();
+            return new Response();
         }
         else
         {
+            /** @var Answer[] $answers */
+            $answers = $em->getRepository(Answer::class)->getAnswers($slug);
+            /** @var FormQuestion[] $questions */
             $questions = $em->getRepository(FormQuestion::class)->getAll();
+            foreach ($answers as $answer)
+            {
+                $q = $answer->getQuestion();
+                $questions[$q->getId()]->setAnswer($answer);
+            }
             return $this->render("index.html.twig", ["questions" => $questions]);
         }
     }

@@ -100,7 +100,7 @@ class Answer
     }
 
     /**
-     * @return mixed
+     * @return FormQuestion
      */
     public function getQuestion()
     {

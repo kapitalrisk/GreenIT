@@ -70,6 +70,9 @@ class FormQuestion
      */
     private $subCategory;
 
+    /** @var Answer $answer */
+    private $answer;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -267,5 +270,23 @@ class FormQuestion
     public function getSubCategory()
     {
         return $this->subCategory;
+    }
+
+    /**
+     * @param Answer $answer
+     * @return FormQuestion
+     */
+    public function setAnswer($answer): FormQuestion
+    {
+        $this->answer = $answer;
+        return $this;
+    }
+
+    /**
+     * @return Answer
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
     }
 }
