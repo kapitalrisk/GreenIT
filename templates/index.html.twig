@@ -45,7 +45,6 @@
             {% if question.subcategory != subcategory %}
                 {% set subcategory = question.subcategory %}
                 {% include "question_prelude.html.twig" %}
-                {{ question.content }} SUBCATEGORY (OMG!!!)
                 {% if question.type == 'choice' %}
                     <table>
                         <thead>
@@ -59,22 +58,29 @@
                         <tbody>
                 {% endif %}
             {% else %}
-                {% set type = "radio" %}
-                {% if question.multiple %}
-                    {% set type = "checkbox" %}
+                {% if question.type == 'choice' %}
+                    {% set type = "radio" %}
+                    {% if question.multiple %}
+                        {% set type = "checkbox" %}
+                    {% endif %}
+                    <tr>
+                        <td>{{ question.content }}</td>
+                        {% set i = 0 %}
+                        {% for label, textbox in question.choices %}
+                            <td>
+                                <input type="{{ type }}"
+                                       id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
+                                       value="{# FIXME #}">
+                            </td>
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <div>
+                        <label for="{{ question.id }}:{{ i }}">{{ question.content }}</label>
+                        <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"/>
+                    </div>
                 {% endif %}
-                <tr>
-                    <td>{{ question.content }}</td>
-                    {% set i = 0 %}
-                    {% for label, textbox in question.choices %}
-                        <td>
-                            <input type="{{ type }}"
-                                   id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
-                                   value="{# FIXME #}">
-                        </td>
-                        {% set i = i + 1 %}
-                    {% endfor %}
-                </tr>
             {% endif %}
 
             {#
@@ -119,7 +125,7 @@
                             <div>
                                 <input class='{{ type }}' type="{{ type }}" id="{{ question.id }}:{{ i }}"
                                        name="{{ question.id }}" value="{{ i }}">
-                                <label class='label label-{{ type }}'for="{{ question.id }}:{{ i }}">{{ label }}</label>
+                                <label class='label label-{{ type }}' for="{{ question.id }}:{{ i }}">{{ label }}</label>
                                 {% if textbox %}
                                     <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ questions.id ~ 'text' }}">
                                 {% endif %}
