@@ -19,4 +19,13 @@ class FormQuestionRepository extends EntityRepository
                    ->orderBy('q.id');
         return $qb->getQuery()->getResult();
     }
+
+    public function getAnsweredQuestions($answered)
+    {
+        $qb = $this->createQueryBuilder('q')
+                   ->andWhere("q.id in (:answered)")
+                   ->setParameter("answered", array_keys($answered))
+                   ->orderBy('q.id');
+        return $qb->getQuery()->getResult();
+    }
 }
