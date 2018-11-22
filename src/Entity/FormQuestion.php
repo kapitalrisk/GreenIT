@@ -136,9 +136,18 @@ class FormQuestion
     {
         if (count($this->_choices) == 0)
         {
-            $data = explode($this->choices, ';');
-            for ($i = 0; $i < count($data); $i += 2) {
-                $this->_choices[$data[$i]] = $data[$i + 1] === 1;
+            $data = explode(';', $this->choices);
+            try {
+                for ($i = 0; $i < count($data); $i += 2) {
+                    $this->_choices[$data[$i]] = $data[$i + 1] === 1;
+                }
+            }
+            catch (\Exception $e)
+            {
+                echo $e->getTraceAsString();
+                echo "<br/>";
+                print_r($data);
+                echo $this->choices;
             }
         }
         return $this->_choices;

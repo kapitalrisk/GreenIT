@@ -107,6 +107,7 @@
                                             <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ questions.id ~ 'text' }}">
                                         {% endif %}
                                     </div>
+                                    {% set i = i + 1 %}
                                 {% endfor %}
                             {% elseif question.type == 'text' %}
                                 <div>
