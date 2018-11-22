@@ -1,0 +1,7 @@
+Format : num question -> réponse -> GOTO num question (sinon parcours normal)
+
+4 -> 'Non' -> 12
+12 -> 'We work with workstation (s), without centralized physical server' -> 50
+13 -> 'A closet or a room without any specific system' -> 31
+39 -> 'Non' OR 'I do not want to answer' -> 42
+62 -> 'Non' -> 70
