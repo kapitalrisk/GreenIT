@@ -9,106 +9,108 @@
 
 <body>
   <header>
-    <h1>
-      Design4Green Hackaton 2018
-    </h1>
+    <div class=header-bar>
+      <h1>
+        Design4Green Hackaton 2018
+      </h1>
+    </div>
   </header>
   <form class='categorie-container'>
     {% for category, questions in data.items() %}
     <div class='categorie-header-container'>
       <div class='left-container'>
         <div class='sup-container'>
-          <span class='left-bar'></span>
+          <span class='left-bar bcolor-{{ category|lower|replace(" ", "-") }}'></span>
         </div>
         <div class='sup-container'>
-          <span class='categorie-bubble'></span>
+          <span class='categorie-bubble bcolor-{{ category|lower|replace(" ", "-") }}'></span>
         </div>
       </div>
       <div class='categorie-title-container'>
         <h2>
-          {{ category }}
+          {{ category|upper }}
         </h2>
       </div>
     </div>
-    <div class="category color-{{category|lower|replace(' ', '-')}}">
+    <div class="category">
       {% for q in questions %}
-        <div class='question-header-container'>
-            <div class='left-container'>
-                <div class='sup-container'>
-                    <span class='left-bar'></span>
-                </div>
-                <div class='sup-container'>
-                    <span class='question-bubble'></span>
-                </div>
-            </div>
-            <div class='question-title-container'>
-                <h2>
-                    {{ q['label'] }}
-                </h2>
-            </div>
+      <div class='question-header-container'>
+        <div class='left-container'>
+          <div class='sup-container'>
+            <span class='left-bar bcolor-{{ category|lower|replace(" ", "-") }}'></span>
+          </div>
+          <div class='sup-container'>
+            <span class='question-bubble bcolor-{{ category|lower|replace(" ", "-") }}'></span>
+          </div>
         </div>
+        <div class='question-title-container'>
+          <h2>
+            {{ q['label'] }}
+          </h2>
+        </div>
+      </div>
       <!--
       {% if q['comments'] != '' %}
       <q>{{q['comments']}}</q>
       {% endif %} -->
 
-        <div class='answer-container'>
-            <div class="left-container">
-                <div class='left-bar'></div>
-            </div>
+      <div class='answer-container'>
+        <div class="left-container">
+          <div class='left-bar bcolor-{{ category|lower|replace(" ", "-") }}'></div>
+        </div>
+        <div>
+          {% if q['type'] == 'Q' %}
+          <div class="question {{q['id']}}">
+            {% for txt in q['texts'] %}
             <div>
-                {% if q['type'] == 'Q' %}
-      <div class="question {{q['id']}}">
-        {% for txt in q['texts'] %}
-        <div>
-          <label for="{{q['id']}}:{{txt['id']}}">{{txt['label']}}</label>
-          <input type="text" id="{{q['id']}}:{{txt['id']}}" name="{{q['id']}}">
-        </div>
-        {% endfor %}
-        {% for answer in q['answers'] %}
-        <div>
-          <input type="{{q['input_type']}}" id="{{q['id']}}:{{answer['id']}}" name="{{q['id']}}" value="{{answer['val']}}">
-          <label for="{{q['id']}}:{{answer['id']}}">{{answer['label']}}</label>
-        </div>
-        {% endfor %}
-        {% if q['text_input'] %}
-        <div>
-          <input type="text" id="text:{{q['id']}}" name="{{q['id']}}">
-        </div>
-        {% endif %}
-      </div>
-      {% else %}
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            {% for choice in q['choices'] %}
-            <th>{{choice['label']}}</th>
-            {% endfor %}
-          </tr>
-        </thead>
-        <tbody>
-          {% for qq in q['questions'] %}
-          <tr>
-            <td>{{qq['label']}}</td>
-              {% for choice in q['choices'] %}
-            <td>
-              <input type="{{q['input_type']}}" id="{{qq['id']}}:{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
-            </td>
-            {% endfor %}
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      {% endif %}
+              <label for={{txt['id']}}>{{txt['label']}}</label>
+              <input type="text" id="{{txt['id']}}" name="{{q['id']}}">
             </div>
+            {% endfor %}
+            {% for answer in q['answers'] %}
+            <div>
+              <input type="{{q['input_type']}}" id={{answer['id']}} name="{{q['id']}}" value="{{answer['val']}}">
+              <label for={{answer['id']}}>{{answer['label']}}</label>
+            </div>
+            {% endfor %}
+            {% if q['text_input'] %}
+            <div>
+              <input type="text" id="text:{{q['id']}}" name="{{q['id']}}">
+            </div>
+            {% endif %}
+          </div>
+          {% else %}
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                {% for choice in q['choices'] %}
+                <th>{{choice['label']}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for qq in q['questions'] %}
+              <tr>
+                <td>{{qq['label']}}<td>
+                  {% for choice in q['choices'] %}
+                <td>
+                  <input type={{q['input_type']}} id="{{choice['id']}}" name="{{qq['id']}}" value="{{choice['val']}}">
+                </td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% endif %}
         </div>
-      
+      </div>
+
       {% endfor %}
     </div>
     {% endfor %}
   </form>
 
-  </body>
+</body>
 
 </html>

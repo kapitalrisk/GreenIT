@@ -13,5 +13,9 @@ vendor/
 *.swo
 *~
 
+<<<<<<< Updated upstream
 # python
 venv
+=======
+venv
+>>>>>>> Stashed changes
