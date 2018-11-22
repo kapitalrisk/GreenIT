@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
     <title>Design4Green</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -35,109 +35,106 @@
     {% for question in questions %}
         {% if question.category != category %}
             {% set category = question.category %}
-            <div class='categorie-header-container'>
-                <div class='left-container'>
-                    <div class='sup-container'>
-                        <span class='left-bar bcolor-{{ category | lower | replace({' ': '-'}) }}'></span>
-                    </div>
-                    <div class='sup-container'>
-                        <span class='categorie-bubble bcolor-{{ category | lower | replace({' ': '-'}) }}'></span>
-                    </div>
-                </div>
-                <div class='categorie-title-container'>
-                    <h2>
-                        {{ category }}
-                    </h2>
-                </div>
-            </div>
+            {% include "category.html.twig" with {"category": question.category} %}
         {% endif %}
-        <div class="category color-{{ question.categoryClass }}">
-            <div class='question-header-container'>
-                <div class='left-container'>
-                    <div class='sup-container'>
-                        <span class='left-bar bcolor-{{ category | lower | replace({' ': '-'}) }}'></span>
-                    </div>
-                    <div class='sup-container'>
-                        <span class='question-bubble bcolor-{{ category | lower | replace({' ': '-'}) }}'></span>
-                    </div>
-                </div>
-                <div class='question-title-container'>
-                    <h2>
-                        {{ question.content }}
-                    </h2>
-                </div>
-            </div>
-            <!--
-            {% if question.comment %}
-            <q>{{ question.comment }}</q>
-            {% endif %} -->
+        {% if subcategory and subcategory != question.subcategory %}
+            {% set subcategory = '' %}
+            </tbody></table></div></div></div> {# used to close "question_prelude.html.twig" opened in earlier iteration #}
+        {% endif %}
+        {% if question.subcategory %}
+            {% if question.subcategory != subcategory %}
+                {% set subcategory = question.subcategory %}
+                {% include "question_prelude.html.twig" %}
+                {{ question.content }} SUBCATEGORY (OMG!!!)
+                {% if question.type == 'choice' %}
+                    <table>
+                        <thead>
+                        <tr>
+                            <th></th>
+                            {% for label, textbox in question.choices %}
+                                <th>{{ label }}</th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                {% endif %}
+            {% else %}
+                {% set type = "radio" %}
+                {% if question.multiple %}
+                    {% set type = "checkbox" %}
+                {% endif %}
+                <tr>
+                    <td>{{ question.content }}</td>
+                    {% set i = 0 %}
+                    {% for label, textbox in question.choices %}
+                        <td>
+                            <input type="{{ type }}"
+                                   id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
+                                   value="{# FIXME #}">
+                        </td>
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                </tr>
+            {% endif %}
 
-            <div class='answer-container'>
-                <div class="left-container">
-                    <div class='left-bar bcolor-{{ category | lower | replace({' ': '-'}) }}'></div>
-                </div>
-                <div>
-                    {% if question.subCategory %}
-                        {{ question.content }} SUBCATEGORY (OMG!!!)
-                    {#{% if question.subCategory != subcategory %}
-                            {% set subcategory = question.subCategory %}
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                    {% for label, textbox in question.choices %}
-                                        <th>{{ label }}</th>
-                                    {% endfor %}
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for qq in q['questions'] %}
-                                    <tr>
-                                        <td>{{ qq['label'] }}</td>
-                                        {% for choice in q['choices'] %}
-                                            <td>
-                                                <input type="{{ q['input_type'] }}"
-                                                       id="{{ qq['id'] }}:{{ choice['id'] }}" name="{{ qq['id'] }}"
-                                                       value="{{ choice['val'] }}">
-                                            </td>
-                                        {% endfor %}
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        {% endif %}#}
-                    {% else %}
-                        <div class="question {{ question.id }}">
-                            {% if question.type == 'choice' %}
-                                <ul class='list'>
-                                {% set i = 0 %}
-                                {% for label, textbox in question.choices %}
-                                    {% set type = "radio" %}
-                                    {% if question.multiple %}
-                                        {% set type = "checkbox" %}
-                                    {% endif %}
-                                    <li class='list__item'>
-                                        <input class="{{ type }}" type="{{ type }}" id="{{ question.id }}:{{ i }}"
-                                               name="{{ question.id }}" value="{# FIXME #}">
-                                        <label class="label label-{{ type }}" for="{{ question.id }}:{{ i }}">{{ label }}</label>
-                                        {% if textbox %}
-                                            <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ questions.id ~ 'text' }}">
-                                        {% endif %}
-                                    </li>
-                                    {% set i = i + 1 %}
-                                {% endfor %}
-                                </ul>
-                            {% elseif question.type == 'text' %}
-                                <div>
-                                    <label for="{{ question.id }}:{{ i }}">{{ question.content }}</label>
-                                    <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"/>
-                                </div>
-                            {% endif %}
+            {#
+            {% if question.subCategory != subcategory %}
+                {% set subcategory = question.subCategory %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        {% for label, textbox in question.choices %}
+                            <th>{{ label }}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for qq in q['questions'] %}
+                        <tr>
+                            <td>{{ qq['label'] }}</td>
+                            {% for choice in q['choices'] %}
+                                <td>
+                                    <input type="{{ q['input_type'] }}"
+                                           id="{{ qq['id'] }}:{{ choice['id'] }}" name="{{ qq['id'] }}"
+                                           value="{{ choice['val'] }}">
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+            #}
+        {% else %}
+            {% include "question_prelude.html.twig" %}
+                <div class="question {{ question.id }}">
+                    {% if question.type == 'choice' %}
+                        {% set type = "radio" %}
+                        {% if question.multiple %}
+                            {% set type = "checkbox" %}
+                        {% endif %}
+                        {% set i = 0 %}
+                        {% for label, textbox in question.choices %}
+                            <div>
+                                <input type="{{ type }}" id="{{ question.id }}:{{ i }}"
+                                       name="{{ question.id }}" value="{# FIXME #}">
+                                <label for="{{ question.id }}:{{ i }}">{{ label }}</label>
+                                {% if textbox %}
+                                    <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ questions.id ~ 'text' }}">
+                                {% endif %}
+                            </div>
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    {% elseif question.type == 'text' %}
+                        <div>
+                            <label for="{{ question.id }}:{{ i }}">{{ question.content }}</label>
+                            <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"/>
                         </div>
                     {% endif %}
                 </div>
-            </div>
-        </div>
+            </div></div></div>
+        {% endif %}
     {% endfor %}
     <button type='button' id='save'>Sauvegarder</button>
 </form>
@@ -151,7 +148,7 @@
     <p>Done by five students from EPITA: Achraf El Khachchai, Leo Champion, Nathan Quintard, Gonzague De Gineste, Justin Rerolle</p>
 </footer>
 
-<script src='script.js'></script>
+<script src='/script.js'></script>
 </body>
 
 </html>

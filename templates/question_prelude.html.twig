@@ -1,0 +1,26 @@
+<div class="category color-{{ question.categoryClass }}">
+    <div class='question-header-container'>
+        <div class='left-container'>
+            <div class='sup-container'>
+                <span class='left-bar'></span>
+            </div>
+            <div class='sup-container'>
+                <span class='question-bubble'></span>
+            </div>
+        </div>
+        <div class='question-title-container'>
+            <h2>
+                {{ question.content }}
+            </h2>
+        </div>
+    </div>
+
+    {% if question.comment %}
+        <q>{{ question.comment|raw }}</q>
+    {% endif %}
+
+    <div class='answer-container'>
+        <div class="left-container">
+            <div class='left-bar'></div>
+        </div>
+        <div>
