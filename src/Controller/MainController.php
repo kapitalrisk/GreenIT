@@ -74,7 +74,7 @@ class MainController extends Controller
             foreach ($answers as $answer)
             {
                 $q = $answer->getQuestion();
-                $questions[$q->getId()]->setAnswer($answer);
+                $questions[$q->getId() - 1]->setAnswer($answer);
             }
             return $this->render("index.html.twig", ["questions" => $questions]);
         }
