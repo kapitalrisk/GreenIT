@@ -1,109 +1,93 @@
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('In which sector of activity is your company active? (linked with your APE code)', 'ChoiceType', 'Industry;0;Business;0;Information and communication;0;Other services activity;0;All other activities (financial, agricultural activities ...);0;Construction;0;Public sector;0;Specialized, Scientific and Technical or Administrative and Support Services Activities;0;Real estate;0',0, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What is the number of employees in your company on 18/12/31 ?', 'ChoiceType', '0;0;1 to 2;0;3 to 9;0;10 to 49;0;50 to 249;0;250 to 4999;0;More than 5000;0', 0, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What is the turnover of your company in the last fiscal year? (or annual budget for Public sector)', 'ChoiceType', '0 to 100K€;0;100 to 500 K€;0;500 to 2 M€;0;2 to 10 M€;0;10 to 50 M€;0;More than 50 M€;0', 0, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you develop digital services for internal or external use (sales to customers)?', 'ChoiceType', 'Yes;0;No;0', 0, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What is the number of users of your digital services?', 'ChoiceType', ';1', 0, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you apply the rules and best practices for digital accessibility?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', O, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Have you optimized the states and printouts in your application tools (reduced number of pages when printing, ink consumption ...)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', O, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you integrate the principles of the ecodesign of digital services?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', O, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you use a modular application architecture?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', O, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you do a design review at the end of your application''s development?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', O, '', 'Your compagny');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What is the overall storage volume of your corporate data (centralized on external hard drives, centralized server, NAS, SAN ...) in Terabytes (TB) useful?', 'ChoiceType', 'I don''t know;0;I do not want to answer;0;TB;1', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you have a server or do you only work with one or more workstations?', 'ChoiceType', 'We work with workstation (s), without centralized physical server;0;We have (at least) a centralized physical server;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you have a dedicated room, simple room or cupboard with bay dedicated to your IT infrastructure?', 'ChoiceType', 'A closet or a room without any specific system;0;A dedicated room;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Is your computer room in house or at a host?', 'ChoiceType', 'Internal;0;Host Member of the European Code of Conduct for Datacenters;0;Non-adhering Host of the European Code of Conduct for Data Centers;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What is the total area of your computer rooms (excluding technical infrastructure *)?', 'ChoiceType', 'I don''t know;0;I do not want to answer;0;m2;1', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you know the PUE * of your Data Center?', 'ChoiceType', 'Less than 1,6;0;Between 1,6 and 2,1;0;More than 2,1;0;I don''t know;0', 0, '*PUE : Power Usage Effectiveness', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What is the rate of charge or energy use of your computer rooms?', 'ChoiceType', '100% - 90%;0;90% - 60%;0;Less than 60%;0;I don''t know;0', 0, 'Rate = Electrical power absorbed by your IT equipment, divided by room capacity in kW, then multiplied by 100 (used energy / available energy)', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Have you led or are you planning actions to optimize your infrastructure? Especially :', '', '', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('The purchase of non-IT equipment from IT rooms (air conditioning, air treatment, inverters, etc.) according to energy efficiency criteria', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Implementing the good practices of the "European Code of Conduct for DataCenter"?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Data center PUE tracking', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Regular monitoring of environmental indicators of computer rooms', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Environmental impact analysis of the datacenter in life cycle approach', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Optimizing the architecture and layout of rooms', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('The urbanization of halls in hot / cold aisles', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Containment of air flows (corridors)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('The use of natural cooling sources (freecooling)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Implementation of a heat recovery system for computer rooms (heating)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('The set temperature in the cold corridor remains higher than 24 °', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('The choice of a modular datacenter architecture', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Have you led or are you planning actions to optimize your infrastructure? Especially :', '', '', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Suspending network equipment', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Pooling physical equipment', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Uninstalling unnecessary infrastructure', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Traceability of material elements (CMDB)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('The correct sizing of the servers in relation to their use', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Give priority to ASHRAE 2 compatible equipment', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('A procedure for provisioning and de-provisioning data-processing equipment in datacenters', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you know the number of physical servers and virtual servers in your company?', 'ChoiceType', 'No;0;I do not want to answer;0;Yes;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('How many physical servers do you have?', 'TextType', ';1', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('How many virtual servers do you have?', 'TextType', ';1', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What will be the evolution of your number of physical servers for 2019? (in% or quantity)', 'ChoiceType', 'I do not want to answer;0;I don''t know;0;In percentage;1;In quanity;1', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What will be the evolution of your number of virtual servers for 2019? (in% or quantity)', 'ChoiceType', 'I do not want to answer;0;I don''t know;0;In percentage;1;In quanity;1', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Has your company appointed a Green IT Manager / Digital Manager?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management') ;
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you have a responsible digital strategy broken down into an action plan?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Is Green IT a topic integrated into your CSR strategy?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you regularly evaluate the environmental impacts of your information system?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you have a team of competent referees on the topics of Green IT?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Have you integrated Green IT into your business strategy', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you have those equipments in your compagny:', '', '', 0, 'Used: equipment used in the business activity<br>Not used functional: equipment in working order but no more used by the company (stored)<br>Neither used nor functional: out of service equipment (HS) waiting for end of life treatment', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Fixed stations, workstations', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Laptops, digital tablets', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Small printers (<15kg, potentially used by a household)', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Flat screen monitors', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Other flat screens (TV, projection screen, digital board ...)', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('CRT monitors (monitors or other)', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Video projectors', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Mobile phones', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Fixed telephones (standalone not connected to such a standard)', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Digital cameras', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Hard Disk Devices, Storage, Backup', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you have other devices in your company?', 'ChoiceType', 'Yes;0;No;0', 0, 'Keyboards, mouse, graphic tablets, scanners, microphones, speakers, office equipment ...', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Regarding other devices, do you have in your company:', '', '', 0, 'Used: equipment used in the business activity<br>Not used functional: equipment in working order but no more used by the company (stored)<br>Neither used nor functional: out of service equipment (HS) waiting for end of life treatment', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Keyboards', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Mouse', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Graphic tablets', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Scanners', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Speakers', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Office automation', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'Infrastructures');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you know the consumption of your workstation in kWh per year?', 'ChoiceType', 'Yes (in %);1;No;0', 0, '', 'Energy');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you track the energy consumption of your compagny activities?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Energy');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you know the share of IT and IT equipment in your company''s total energy consumption?', 'ChoiceType', 'Yes (in %);1;No;0', 0, '', 'Energy');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Have you set up a power management system? (automatic shutdown / shutdown of workstations)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Energy');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you use copiers from a repackaging industry (second-hand / second-hand)?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you consolidate individual printers to shared printers?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Have you set up an identification system on printers (to trigger printing)?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What is the average life of your professional copier / MFP *?', 'ChoiceType', 'I do not know;0;Do not want to answer;0;Years;1', 0, '* MFP Multi Fonction Printer', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Are your printers set by default in eco mode? Especially :', '', '', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Energy saving (Automatic standby)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Black and white by default', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Default duplex', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Default draft mode', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('What is the number of pages printed / day / employee? (A4 equivalent)', 'ChoiceType', 'Less than 10;0;From 10 to 20;0;From 20 to 30;0;More than 30;0;I don''t know;0', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Can you specify the number of cartridges / toners:', 'ChoiceType', 'Cartbridges used a year;1;Cartbridges stored in the average business;1;Toners used in a year;1;Toners stored in the average business;1', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you organize the separate collection of waste cartridges / toners?', 'ChoiceType', 'Yes, to a repackaging industry;0;Yes, towards a recycling channel (destruction);0;No no separate collection device is planned', 0, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you prefer the use of recycled paper?', 'ChoiceType', 'Yes, our paper is made from virgin paste;0;Yes, mixed paper;0;Yes, 100% recycled;0;I''m not paying attention;0', 1, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you choose certified paper?', 'ChoiceType', 'Yes, FSC;0;Yes, PEFC;0;Yes, Blue Angel;0;Yes, European Label;0;Yes, other >> comment fields to add;0;I''m not paying attention;0', 1, '', 'Printing');
-INSERT INTO form_question (content, type, choices, multiple, comment, category) VALUES ('Do you organize the separate collection of waste paper for recycling?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing');
-
-UPDATE form_question SET category = 'Your compagny' WHERE id >= 1 AND id <= 10;
-UPDATE form_question SET category = 'System infrastructure' WHERE id >= 11 AND id <= 43;
-UPDATE form_question SET category = 'Management' WHERE id >= 44 AND id <= 49;
-UPDATE form_question SET category = 'System infrastructure' WHERE id >= 50 AND id <= 69;
-UPDATE form_question SET category = 'Energy consumption' WHERE id >= 70 AND id <= 73;
-UPDATE form_question SET category = 'Printing' WHERE id >= 74 AND id <= 88;
-
-UPDATE form_question SET subcategory = '1' WHERE id >= 6 AND id <= 10;
-UPDATE form_question SET subcategory = '2' WHERE id >= 18 AND id <= 30;
-UPDATE form_question SET subcategory = '3' WHERE id >= 31 AND id <= 38;
-UPDATE form_question SET subcategory = '4' WHERE id >= 50 AND id <= 61;
-UPDATE form_question SET subcategory = '5' WHERE id >= 63 AND id <= 69;
-UPDATE form_question SET subcategory = '6' WHERE id >= 78 AND id <= 82;
-
-UPDATE form_question SET type = '', choices = '' WHERE content = 'Can you specify the number of cartridges / toners:';
-INSERT INTO form_question (content, type, choices, multiple, comment, category, subcategory) VALUES
+INSERT INTO form_question (content, type, choices, multiple, comment, category, subcategory) VALUES 
+('In which sector of activity is your company active? (linked with your APE code)', 'ChoiceType', 'Industry;0;Business;0;Information and communication;0;Other services activity;0;All other activities (financial, agricultural activities ...);0;Construction;0;Public sector;0;Specialized, Scientific and Technical or Administrative and Support Services Activities;0;Real estate;0',0, '', 'Your compagny', ''),
+('What is the number of employees in your company on 18/12/31 ?', 'ChoiceType', '0;0;1 to 2;0;3 to 9;0;10 to 49;0;50 to 249;0;250 to 4999;0;More than 5000;0', 0, '', 'Your compagny', ''),
+('What is the turnover of your company in the last fiscal year? (or annual budget for Public sector)', 'ChoiceType', '0 to 100K€;0;100 to 500 K€;0;500 to 2 M€;0;2 to 10 M€;0;10 to 50 M€;0;More than 50 M€;0', 0, '', 'Your compagny', ''),
+('Do you develop digital services for internal or external use (sales to customers)?', 'ChoiceType', 'Yes;0;No;0', 0, '', 'Your compagny', ''),
+('What is the number of users of your digital services?', 'ChoiceType', ';1', 0, '', 'Your compagny', ''),
+('Do you apply the rules and best practices for digital accessibility?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Your compagny', '1'),
+('Have you optimized the states and printouts in your application tools (reduced number of pages when printing, ink consumption ...)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Your compagny', '1'),
+('Do you integrate the principles of the ecodesign of digital services?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Your compagny', '1'),
+('Do you use a modular application architecture?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Your compagny', '1'),
+('Do you do a design review at the end of your application''s development?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Your compagny', '1'),
+('What is the overall storage volume of your corporate data (centralized on external hard drives, centralized server, NAS, SAN ...) in Terabytes (TB) useful?', 'ChoiceType', 'I don''t know;0;I do not want to answer;0;TB;1', 0, '', 'System infrastructure', ''),
+('Do you have a server or do you only work with one or more workstations?', 'ChoiceType', 'We work with workstation (s), without centralized physical server;0;We have (at least) a centralized physical server;0', 0, '', 'System infrastructure', ''),
+('Do you have a dedicated room, simple room or cupboard with bay dedicated to your IT infrastructure?', 'ChoiceType', 'A closet or a room without any specific system;0;A dedicated room;0', 0, '', 'System infrastructure', ''),
+('Is your computer room in house or at a host?', 'ChoiceType', 'Internal;0;Host Member of the European Code of Conduct for Datacenters;0;Non-adhering Host of the European Code of Conduct for Data Centers;0', 0, '', 'System infrastructure', ''),
+('What is the total area of your computer rooms (excluding technical infrastructure *)?', 'ChoiceType', 'I don''t know;0;I do not want to answer;0;m2;1', 0, '', 'System infrastructure', ''),
+('Do you know the PUE * of your Data Center?', 'ChoiceType', 'Less than 1,6;0;Between 1,6 and 2,1;0;More than 2,1;0;I don''t know;0', 0, '*PUE : Power Usage Effectiveness', 'System infrastructure', ''),
+('What is the rate of charge or energy use of your computer rooms?', 'ChoiceType', '100% - 90%;0;90% - 60%;0;Less than 60%;0;I don''t know;0', 0, 'Rate = Electrical power absorbed by your IT equipment, divided by room capacity in kW, then multiplied by 100 (used energy / available energy)', 'System infrastructure', ''),
+('Have you led or are you planning actions to optimize your infrastructure? Especially :', '', '', 0, '', 'System infrastructure', '2'),
+('The purchase of non-IT equipment from IT rooms (air conditioning, air treatment, inverters, etc.) according to energy efficiency criteria', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('Implementing the good practices of the "European Code of Conduct for DataCenter"?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('Data center PUE tracking', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('Regular monitoring of environmental indicators of computer rooms', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('Environmental impact analysis of the datacenter in life cycle approach', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('Optimizing the architecture and layout of rooms', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('The urbanization of halls in hot / cold aisles', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('Containment of air flows (corridors)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('The use of natural cooling sources (freecooling)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('Implementation of a heat recovery system for computer rooms (heating)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('The set temperature in the cold corridor remains higher than 24 °', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('The choice of a modular datacenter architecture', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '2'),
+('Have you led or are you planning actions to optimize your infrastructure? Especially :', '', '', 0, '', 'System infrastructure', '3'),
+('Suspending network equipment', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '3'),
+('Pooling physical equipment', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '3'),
+('Uninstalling unnecessary infrastructure', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '3'),
+('Traceability of material elements (CMDB)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '3'),
+('The correct sizing of the servers in relation to their use', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '3'),
+('Give priority to ASHRAE 2 compatible equipment', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '3'),
+('A procedure for provisioning and de-provisioning data-processing equipment in datacenters', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'System infrastructure', '3'),
+('Do you know the number of physical servers and virtual servers in your company?', 'ChoiceType', 'No;0;I do not want to answer;0;Yes;0', 0, '', 'System infrastructure', ''),
+('How many physical servers do you have?', 'TextType', ';1', 0, '', 'System infrastructure', ''),
+('How many virtual servers do you have?', 'TextType', ';1', 0, '', 'System infrastructure', ''),
+('What will be the evolution of your number of physical servers for 2019? (in% or quantity)', 'ChoiceType', 'I do not want to answer;0;I don''t know;0;In percentage;1;In quanity;1', 0, '', 'System infrastructure', ''),
+('What will be the evolution of your number of virtual servers for 2019? (in% or quantity)', 'ChoiceType', 'I do not want to answer;0;I don''t know;0;In percentage;1;In quanity;1', 0, '', 'System infrastructure', ''),
+('Has your company appointed a Green IT Manager / Digital Manager?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management', ''),
+('Do you have a responsible digital strategy broken down into an action plan?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management', ''),
+('Is Green IT a topic integrated into your CSR strategy?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management', ''),
+('Do you regularly evaluate the environmental impacts of your information system?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management', ''),
+('Do you have a team of competent referees on the topics of Green IT?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management', ''),
+('Have you integrated Green IT into your business strategy', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Management', ''),
+('Do you have those equipments in your compagny:', '', '', 0, 'Used: equipment used in the business activity<br>Not used functional: equipment in working order but no more used by the company (stored)<br>Neither used nor functional: out of service equipment (HS) waiting for end of life treatment', 'System infrastructures', '4'),
+('Fixed stations, workstations', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Laptops, digital tablets', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Small printers (<15kg, potentially used by a household)', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Flat screen monitors', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Other flat screens (TV, projection screen, digital board ...)', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('CRT monitors (monitors or other)', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Video projectors', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Mobile phones', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Fixed telephones (standalone not connected to such a standard)', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Digital cameras', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Hard Disk Devices, Storage, Backup', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '4'),
+('Do you have other devices in your company?', 'ChoiceType', 'Yes;0;No;0', 0, 'Keyboards, mouse, graphic tablets, scanners, microphones, speakers, office equipment ...', 'System infrastructures', ''),
+('Regarding other devices, do you have in your company:', '', '', 0, 'Used: equipment used in the business activity<br>Not used functional: equipment in working order but no more used by the company (stored)<br>Neither used nor functional: out of service equipment (HS) waiting for end of life treatment', 'System infrastructures', '5'),
+('Keyboards', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '5'),
+('Mouse', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '5'),
+('Graphic tablets', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '5'),
+('Scanners', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '5'),
+('Speakers', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '5'),
+('Office automation', 'ChoiceType', 'Used;0;Not used functional;0;Neither used nor functional;0', 0, '', 'System infrastructures', '5'),
+('Do you know the consumption of your workstation in kWh per year?', 'ChoiceType', 'Yes (in %);1;No;0', 0, '', 'Energy', ''),
+('Do you track the energy consumption of your compagny activities?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Energy', ''),
+('Do you know the share of IT and IT equipment in your company''s total energy consumption?', 'ChoiceType', 'Yes (in %);1;No;0', 0, '', 'Energy', ''),
+('Have you set up a power management system? (automatic shutdown / shutdown of workstations)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Energy', ''),
+('Do you use copiers from a repackaging industry (second-hand / second-hand)?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', ''),
+('Do you consolidate individual printers to shared printers?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', ''),
+('Have you set up an identification system on printers (to trigger printing)?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', ''),
+('What is the average life of your professional copier / MFP *?', 'ChoiceType', 'I do not know;0;Do not want to answer;0;Years;1', 0, '* MFP Multi Fonction Printer', 'Printing', ''),
+('Are your printers set by default in eco mode? Especially :', '', '', 0, '', 'Printing', '6'),
+('Energy saving (Automatic standby)', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', '6'),
+('Black and white by default', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', '6'),
+('Default duplex', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', '6'),
+('Default draft mode', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', '6'),
+('What is the number of pages printed / day / employee? (A4 equivalent)', 'ChoiceType', 'Less than 10;0;From 10 to 20;0;From 20 to 30;0;More than 30;0;I don''t know;0', 0, '', 'Printing', ''),
+('Can you specify the number of cartridges / toners:', '', '', 0, '', 'Printing', ''),
 ('Cartbridges used a year', 'TextField', ';1', 0, 'Printing', '', '7'),
 ('Cartbridges stored in the average business', 'TextField', ';1', 0, 'Printing', '', '7'),
 ('Toners used in a year', 'TextField', ';1', 0, 'Printing', '', '7'),
-('Toners stored in the average business', 'TextField', ';1', 0, 'Printing', '', '7');
+('Toners stored in the average business', 'TextField', ';1', 0, 'Printing', '', '7'),
+('Do you organize the separate collection of waste cartridges / toners?', 'ChoiceType', 'Yes, to a repackaging industry;0;Yes, towards a recycling channel (destruction);0;No no separate collection device is planned', 0, '', 'Printing', ''),
+('Do you prefer the use of recycled paper?', 'ChoiceType', 'Yes, our paper is made from virgin paste;0;Yes, mixed paper;0;Yes, 100% recycled;0;I''m not paying attention;0', 1, '', 'Printing', ''),
+('Do you choose certified paper?', 'ChoiceType', 'Yes, FSC;0;Yes, PEFC;0;Yes, Blue Angel;0;Yes, European Label;0;Yes, other >> comment fields to add;0;I''m not paying attention;0', 1, '', 'Printing', ''),
+('Do you organize the separate collection of waste paper for recycling?', 'ChoiceType', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', '');
