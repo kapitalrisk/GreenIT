@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Design4Green</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+    <h1>
+        Design4Green Hackaton 2018
+    </h1>
+</header>
+{% set category = "" %}
+{% set subcategory = "" %}
+<form class='categorie-container'>
+    {% for question in questions %}
+        {% if question.category != category %}
+            {% set category = question.category %}
+            <div class='categorie-header-container'>
+                <div class='left-container'>
+                    <div class='sup-container'>
+                        <span class='left-bar'></span>
+                    </div>
+                    <div class='sup-container'>
+                        <span class='categorie-bubble'></span>
+                    </div>
+                </div>
+                <div class='categorie-title-container'>
+                    <h2>
+                        {{ category }}
+                    </h2>
+                </div>
+            </div>
+        {% endif %}
+        <div class="category color-{{ question.categoryClass }}">
+            <div class='question-header-container'>
+                <div class='left-container'>
+                    <div class='sup-container'>
+                        <span class='left-bar'></span>
+                    </div>
+                    <div class='sup-container'>
+                        <span class='question-bubble'></span>
+                    </div>
+                </div>
+                <div class='question-title-container'>
+                    <h2>
+                        {{ question.content }}
+                    </h2>
+                </div>
+            </div>
+            <!--
+            {% if question.comment %}
+            <q>{{ question.comment }}</q>
+            {% endif %} -->
+
+            <div class='answer-container'>
+                <div class="left-container">
+                    <div class='left-bar'></div>
+                </div>
+                <div>
+                    {% if question.subCategory %}
+                        {% if question.subCategory != subcategory %}
+                            {% set subcategory = question.subCategory %}
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    {% for label, textbox in question.choices %}
+                                        <th>{{ label }}</th>
+                                    {% endfor %}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for qq in q['questions'] %}
+                                    <tr>
+                                        <td>{{ qq['label'] }}</td>
+                                        {% for choice in q['choices'] %}
+                                            <td>
+                                                <input type="{{ q['input_type'] }}"
+                                                       id="{{ qq['id'] }}:{{ choice['id'] }}" name="{{ qq['id'] }}"
+                                                       value="{{ choice['val'] }}">
+                                            </td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
+                    {% else %}
+                        <div class="question {{ question.id }}">
+                            {% if question.type == 'choice' %}
+                                {% set i = 0 %}
+                                {% for label, textbox in question.choices %}
+                                    {% set type = "radio" %}
+                                    {% if question.multiple %}
+                                        {% set type = "checkbox" %}
+                                    {% endif %}
+                                    <div>
+                                        <input type="{{ type }}" id="{{ question.id }}:{{ i }}"
+                                               name="{{ question.id }}" value="{# FIXME #}">
+                                        <label for="{{ question.id }}:{{ i }}">{{ label }}</label>
+                                        {% if textbox %}
+                                            <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ questions.id ~ 'text' }}">
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% elseif question.type == 'text' %}
+                                <div>
+                                    <label for="{{ question.id }}:{{ i }}">{{ label }}</label>
+                                    <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"/>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</form>
+
+</body>
+
+</html>

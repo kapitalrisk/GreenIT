@@ -65,6 +65,11 @@ class FormQuestion
       */
     private $category;
 
+    /**
+     * @ORM\Column(name="subcategory", type="string", nullable=true)
+     */
+    private $subCategory;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -191,5 +196,67 @@ class FormQuestion
     public function getAnswers()
     {
         return $this->answers;
+    }
+
+    /**
+     * @param mixed $comment
+     * @return FormQuestion
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param mixed $category
+     * @return FormQuestion
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategoryClass()
+    {
+        return str_replace(' ', '-', strtolower($this->category));
+    }
+
+    /**
+     * @param mixed $subCategory
+     * @return FormQuestion
+     */
+    public function setSubCategory($subCategory)
+    {
+        $this->subCategory = $subCategory;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubCategory()
+    {
+        return $this->subCategory;
     }
 }

@@ -9,11 +9,13 @@
 namespace App\Controller;
 
 
+use App\Entity\FormQuestion;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MainController
+class MainController extends Controller
 {
     /**
      * Matches /*
@@ -24,8 +26,11 @@ class MainController
      */
     public function index($slug)
     {
+        $em = $this->getDoctrine()->getManager();
         if ($slug === null)
-            $slug = "null";
-        return new JSONResponse("The slug is \"$slug\"");
+            $slug = bin2hex(random_bytes(8));
+
+        $questions = $em->getRepository(FormQuestion::class)->findAll();
+        return $this->render("::index.html.twig", ["questions" => $questions]);
     }
 }
