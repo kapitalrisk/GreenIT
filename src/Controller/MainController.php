@@ -39,7 +39,7 @@ class MainController extends Controller
         }
         else
         {
-            $questions = $em->getRepository(FormQuestion::class)->findAll();
+            $questions = $em->getRepository(FormQuestion::class)->getAll();
             return $this->render("index.html.twig", ["questions" => $questions]);
         }
     }

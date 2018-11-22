@@ -15,8 +15,6 @@
       </h1>
     </div>
   </header>
-{% set category = "" %}
-{% set subcategory = "" %}
 <div class='content'>
     <div class="introduction">
       <p>
@@ -31,15 +29,17 @@
         link to the questionnaire.
       </p>
     </div>
+    {% set category = "" %}
+    {% set subcategory = "" %}
 <form name='questionnaire'>
     {% for question in questions %}
-        {% if question.category != category %}
-            {% set category = question.category %}
-            {% include "category.html.twig" with {"category": question.category} %}
-        {% endif %}
         {% if subcategory and subcategory != question.subcategory %}
             {% set subcategory = '' %}
             </tbody></table></div></div></div> {# used to close "question_prelude.html.twig" opened in earlier iteration #}
+        {% endif %}
+        {% if question.category != category %}
+            {% set category = question.category %}
+            {% include "category.html.twig" with {"category": question.category} %}
         {% endif %}
         {% if question.subcategory %}
             {% if question.subcategory != subcategory %}
@@ -71,6 +71,9 @@
                                 <input type="{{ type }}"
                                        id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
                                        value="{# FIXME #}">
+                                {% if textbox %}
+
+                                {% endif %}
                             </td>
                             {% set i = i + 1 %}
                         {% endfor %}
@@ -82,36 +85,6 @@
                     </div>
                 {% endif %}
             {% endif %}
-
-            {#
-            {% if question.subCategory != subcategory %}
-                {% set subcategory = question.subCategory %}
-                <table>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        {% for label, textbox in question.choices %}
-                            <th>{{ label }}</th>
-                        {% endfor %}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for qq in q['questions'] %}
-                        <tr>
-                            <td>{{ qq['label'] }}</td>
-                            {% for choice in q['choices'] %}
-                                <td>
-                                    <input type="{{ q['input_type'] }}"
-                                           id="{{ qq['id'] }}:{{ choice['id'] }}" name="{{ qq['id'] }}"
-                                           value="{{ choice['val'] }}">
-                                </td>
-                            {% endfor %}
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            {% endif %}
-            #}
         {% else %}
             {% include "question_prelude.html.twig" %}
                 <div class="question {{ question.id }}">
@@ -125,10 +98,11 @@
                             <div>
                                 <input class='{{ type }}' type="{{ type }}" id="{{ question.id }}:{{ i }}"
                                        name="{{ question.id }}" value="{{ i }}">
-                                <label class='label label-{{ type }}' for="{{ question.id }}:{{ i }}">{{ label }}</label>
-                                {% if textbox %}
-                                    <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ questions.id ~ 'text' }}">
-                                {% endif %}
+                                <label class='label label-{{ type }}' for="{{ question.id }}:{{ i }}">
+                                    {{ label }}
+                                    {% if textbox %} : <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ question.id ~ 'text' }}">{% endif %}
+                                </label>
+
                             </div>
                             {% set i = i + 1 %}
                         {% endfor %}
