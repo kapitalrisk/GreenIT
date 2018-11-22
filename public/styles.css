@@ -398,3 +398,22 @@ body {
 .my-float{
 	margin-top:22px;
 }
+
+
+.save-container {
+    width: 100%;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    margin: 2.5em, 0;
+}
+.save-button {
+    width: 18em;
+    height: 4.5em;
+    background-color: #048a2c;
+    color: var(--black-background);
+    border: solid;
+    border-radius: 25%;
+    border-color: #048a2c; 
+    font-size: 2em;
+}
