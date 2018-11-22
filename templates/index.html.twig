@@ -111,7 +111,7 @@
                                 {% endfor %}
                             {% elseif question.type == 'text' %}
                                 <div>
-                                    <label for="{{ question.id }}:{{ i }}">{{ label }}</label>
+                                    <label for="{{ question.id }}:{{ i }}">{{ question.content }}</label>
                                     <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"/>
                                 </div>
                             {% endif %}
