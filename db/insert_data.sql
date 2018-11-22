@@ -93,3 +93,10 @@ UPDATE form_question SET category = 'Management' WHERE id >= 44 AND id <= 49;
 UPDATE form_question SET category = 'System infrastructure' WHERE id >= 50 AND id <= 69;
 UPDATE form_question SET category = 'Energy consumption' WHERE id >= 70 AND id <= 73;
 UPDATE form_question SET category = 'Printing' WHERE id >= 74 AND id <= 88;
+
+UPDATE form_question SET subcategory = '1' WHERE id >= 6 AND id <= 10;
+UPDATE form_question SET subcategory = '2' WHERE id >= 18 AND id <= 30;
+UPDATE form_question SET subcategory = '3' WHERE id >= 31 AND id <= 38;
+UPDATE form_question SET subcategory = '4' WHERE id >= 50 AND id <= 61;
+UPDATE form_question SET subcategory = '5' WHERE id >= 63 AND id <= 69;
+UPDATE form_question SET subcategory = '6' WHERE id >= 78 AND id <= 82;
