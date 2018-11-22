@@ -8,14 +8,30 @@
 </head>
 
 <body>
-<header>
-    <h1>
-        Design4Green Hackathon 2018
-    </h1>
-</header>
+  <header>
+    <div class=header-bar>
+      <h1>
+        Design4Green Hackaton 2018
+      </h1>
+    </div>
+  </header>
 {% set category = "" %}
 {% set subcategory = "" %}
-<form class='categorie-container'>
+<div class='content'>
+    <div class="introduction">
+      <p>
+        With the support of ADEME, the Ministry of Ecology, Energy and the Sea and the Ministry of Economy and Finance,
+        the association AGIT (Alliance for Green IT) and the eco-organizations of the recycling network of Waste
+        Electrical and Electronic Equipment (WEEE) organize a survey to assess the deposits of computer and office
+        equipment present in companies and more generally on the maturity of companies in France in the use of
+        eco-responsible digital services.  The duration of the questionnaire is estimated at 15 minutes if you are able
+        to answer questions directly.  You can return at any time on the questionnaire, answer in several times, your
+        previous answers are recorded. In case of modification, only the last answer will be taken into account.  You
+        can submit this questionnaire to several people in your organization. All you have to do is simply share the
+        link to the questionnaire.
+      </p>
+    </div>
+<form>
     {% for question in questions %}
         {% if question.category != category %}
             {% set category = question.category %}
@@ -122,6 +138,15 @@
         </div>
     {% endfor %}
 </form>
+<div class='introduction'>
+<p>
+    Thank you for participating in this survey. Your answer is invaluable to us to constitute the most representative sample of the companies in France.
+</p>
+</div>
+</div>
+<footer>
+    <p>Done by five students from EPITA: Achraf El Khachchai, Leo Champion, Nathan Quintard, Gonzague De Gineste, Justin Rerolle</p>
+</footer>
 
 </body>
 
