@@ -87,7 +87,7 @@ INSERT INTO form_question (content, type, choices, multiple, comment, category, 
 ('Cartbridges stored in the average business', 'TextField', ';1', 0, 'Printing', '', '7'),
 ('Toners used in a year', 'TextField', ';1', 0, 'Printing', '', '7'),
 ('Toners stored in the average business', 'TextField', ';1', 0, 'Printing', '', '7'),
-('Do you organize the separate collection of waste cartridges / toners?', 'choice', 'Yes, to a repackaging industry;0;Yes, towards a recycling channel (destruction);0;No no separate collection device is planned', 0, '', 'Printing', ''),
+('Do you organize the separate collection of waste cartridges / toners?', 'choice', 'Yes, to a repackaging industry;0;Yes, towards a recycling channel (destruction);0;No no separate collection device is planned;0', 0, '', 'Printing', ''),
 ('Do you prefer the use of recycled paper?', 'choice', 'Yes, our paper is made from virgin paste;0;Yes, mixed paper;0;Yes, 100% recycled;0;I''m not paying attention;0', 1, '', 'Printing', ''),
 ('Do you choose certified paper?', 'choice', 'Yes, FSC;0;Yes, PEFC;0;Yes, Blue Angel;0;Yes, European Label;0;Yes, other >> comment fields to add;0;I''m not paying attention;0', 1, '', 'Printing', ''),
 ('Do you organize the separate collection of waste paper for recycling?', 'choice', 'Yes;0;No;0;I don''t know;0', 0, '', 'Printing', '');
