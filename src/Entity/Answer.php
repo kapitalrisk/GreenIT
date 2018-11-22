@@ -8,11 +8,12 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="answer")
+ * @ORM\Table(name="answer", indexes={@ORM\Index(name="question_idx", columns={"question"})})
  */
 class Answer
 {
@@ -30,8 +31,7 @@ class Answer
     private $question;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="answers")
-     * @ORM\JoinColumn(name="user", referencedColumnName="id")
+     * @ORM\Column(name="user", type="string", options={"default":""})
      */
     private $user;
 
