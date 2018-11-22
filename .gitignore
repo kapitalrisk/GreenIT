@@ -12,3 +12,8 @@ vendor/
 *.swp
 *.swo
 *~
+
+# python
+venv
+index.html
+.python-version
