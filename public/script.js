@@ -1,5 +1,3 @@
-let darkColor = '#222222'
-let clearColor = '#E1E1E1'
 document.getElementById('save').onclick = function save(e) {
     console.log('dasdasdaszdasdaszdsadasdasdsadsd')
     e.preventDefault();
@@ -11,11 +9,14 @@ document.getElementById('save').onclick = function save(e) {
     })
     return false;
 }
-document.getElementById('button-co').onclick = function () {
-    document.body.style.setProperty('--primary-color', darkColor)
-    document.body.style.setProperty('--grey-text', darkColor)
-    document.body.style.setProperty('--black-background', clearColor)
-    const tmp = darkColor;
-    darkColor = clearColor;
-    clearColor = tmp;
-};
+let backgroundColor = '#222222'
+let textColor = '#E1E1E1'
+function colors() {
+    document.body.style.setProperty('--primary-color', backgroundColor)
+    document.body.style.setProperty('--grey-text', backgroundColor)
+    document.body.style.setProperty('--black-background', textColor)
+    const tmp = backgroundColor;
+    backgroundColor = textColor;
+    textColor = tmp;
+}
+document.getElementById('button-co').onclick = colors;

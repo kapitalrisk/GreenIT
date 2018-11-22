@@ -4,6 +4,7 @@
     --accent-color: #009688;
     --black-background: #222222;
     --grey-text: rgb(225, 225, 225);
+    --dim-background: #2a2a2a;
 }
 
 * {
@@ -28,6 +29,16 @@ label {
 
 li {
     list-style: none;
+}
+
+footer {
+    background-color: var(--dim-background);
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    text-align: center;
+    color: #999;
+    font-size: 0.85em;
 }
 
 .header-bar {

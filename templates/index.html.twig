@@ -117,9 +117,9 @@
                         {% set i = 0 %}
                         {% for label, textbox in question.choices %}
                             <div>
-                                <input type="{{ type }}" id="{{ question.id }}:{{ i }}"
-                                       name="{{ question.id }}" value="{# FIXME #}">
-                                <label for="{{ question.id }}:{{ i }}">{{ label }}</label>
+                                <input class='{{ type }}' type="{{ type }}" id="{{ question.id }}:{{ i }}"
+                                       name="{{ question.id }}" value="{{ i }}">
+                                <label class='label label-{{ type }}'for="{{ question.id }}:{{ i }}">{{ label }}</label>
                                 {% if textbox %}
                                     <input type="text" id="{{ question.id }}:{{ i }}:text" name="{{ questions.id ~ 'text' }}">
                                 {% endif %}
