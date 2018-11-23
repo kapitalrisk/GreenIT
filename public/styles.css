@@ -428,6 +428,7 @@ body {
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px rgb(0, 0, 0);
+    cursor: pointer;
 }
 .float-bottom {
     top: auto;
@@ -439,7 +440,6 @@ body {
     margin-top: 10px; 
     width: 30px;
     height: 30px;
-    cursor: pointer;
 }
 
 .my-float{
