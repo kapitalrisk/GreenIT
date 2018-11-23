@@ -18,6 +18,7 @@ input[type=text] {
     border: none;
     border-bottom: 1px solid var(--grey-text);
     font-size: 1.2em;
+    color: var(--grey-text)
 }
 input[type=text]:hover {
     background-color: rgba(136, 136, 136, 0.1);
