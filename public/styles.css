@@ -428,17 +428,14 @@ body {
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px rgb(0, 0, 0);
+    cursor: pointer;
 }
 .float-bottom {
     top: auto;
     bottom: 30px;
     background-color: var(--accent-color)
 }
-.sunmoon {
-    margin-top: 5px; 
-    width: 40px;
-    height: 40px;
-}
+
 .sunmoon {
     margin-top: 10px; 
     width: 30px;
