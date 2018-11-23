@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 
-<body>
-  <header>
+<body id="app">
+</body>
+
+<script>
+    const html = `<header>
     <div class=header-bar>
       <h1>
         Design4Green Hackaton 2018
@@ -141,10 +144,10 @@ PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDQ5NiA0OTYuMDk4MzEiIHdpZHRoPSI1MTIiIHht
 </a>
 <a id='save' class='float float-bottom'>
     <img class="sunmoon" alt="save" src="img/save.png"/>
-</a>
+</a>`;
+        document.getElementById("app").innerHTML = html;
+</script>
 <script class="save" src='/script.js'></script>
-</body>
-
 
 </html>
 {% endspaceless %}
