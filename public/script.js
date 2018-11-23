@@ -1,20 +1,24 @@
 let darkColor = '#222222'
 let clearColor = '#E1E1E1'
 document.getElementById('save').onclick = function save(e) {
-    console.log('dasdasdaszdasdaszdsadasdasdsadsd')
     e.preventDefault();
+    e.stopPropagation();
     const data = new FormData(document.questionnaire);
     const req = fetch(location.pathname, {
         method: 'POST',
         body: data,
-
     })
-    return false;
-}
+        .then(function () {
+            document.getElementById("intro-foot").hidden = false;
+            document.getElementById("intro-head").hidden = true;
+            document.querySelector("form").hidden = true;
+        });
+
+};
 document.getElementById('button-co').onclick = function () {
-    document.body.style.setProperty('--primary-color', darkColor)
-    document.body.style.setProperty('--grey-text', darkColor)
-    document.body.style.setProperty('--black-background', clearColor)
+    document.body.style.setProperty('--primary-color', darkColor);
+    document.body.style.setProperty('--grey-text', darkColor);
+    document.body.style.setProperty('--black-background', clearColor);
     const tmp = darkColor;
     darkColor = clearColor;
     clearColor = tmp;

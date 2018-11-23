@@ -17,7 +17,7 @@
     </div>
   </header>
 <div class='content'>
-    <div class="introduction">
+    <div class="introduction" id="intro-head">
       <p>
         With the support of ADEME, the Ministry of Ecology, Energy and the Sea and the Ministry of Economy and Finance,
         the association AGIT (Alliance for Green IT) and the eco-organizations of the recycling network of Waste
@@ -122,15 +122,18 @@
         {% endif %}
     {% endfor %}
 </form>
-<div class='introduction'>
+<div class='introduction' id="intro-foot" hidden>
 <p>
    Thank you for participating in this survey. Your answer is invaluable to us to constitute the most representative sample of the companies in France.
 </p>
+    <p>You can continue editing this document anytime with this link:
+        <a href="#"><pre>{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}</pre></a>
+    </p>
 </div>
 
 
 <footer>
-    <p>Done by five students from EPITA: Achraf El Khachchai, Leo Champion, Nathan Quintard, Gonzague De Gineste, Justin Rerolle</p>
+    <p>Done by five students from EPITA: Achraf El Khachchai, Leo Champion, Nathan Quintard, Gonzague de Gineste, Justin Rerolle</p>
 </footer>
 <a id="button-co" class="float">
     <img class="sunmoon" alt="nightmode" src="data:image/svg+xml;base64,
