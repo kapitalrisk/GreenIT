@@ -67,10 +67,19 @@ class MainController extends Controller
         }
         else
         {
-            /** @var Answer[] $answers */
+            $cachedQuestions = $this->get('cache.app')->getItem('formQuestions');
             $answers = $em->getRepository(Answer::class)->getAnswers($slug);
-            /** @var FormQuestion[] $questions */
-            $questions = $em->getRepository(FormQuestion::class)->getAll();
+
+            if (!$cachedQuestions->isHit())
+            {
+                $questions = $em->getRepository(FormQuestion::class)->getAll();
+                $cachedQuestions->set($questions);
+                $this->get('cache.app')->save($cachedQuestions);
+            }
+            else
+            {
+                $questions = $cachedQuestions->get();
+            }
             foreach ($answers as $answer)
             {
                 $q = $answer->getQuestion();
