@@ -40,7 +40,6 @@ class MainController extends Controller
 
         if ($request->getMethod() == "POST")
         {
-            print_r($_POST);
             $arrKeys = array_filter($_POST, function ($k) { return $k != ""; }); // get array keys for answered questions
             $questions = $em->getRepository(FormQuestion::class)->getAnsweredQuestions($arrKeys);
 
