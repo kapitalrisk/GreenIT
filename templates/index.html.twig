@@ -65,7 +65,8 @@
                             <input class="radio-table"
                                     type="{{ type }}"
                                     id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
-                                    value="{{ i }}">
+                                    value="{{ i }}"
+                                    checked="{# FIXME #}">
                             <label class="label-table" for="{{ question.id }}:{{ i }}"></label>
                         </div>
                         {% set i = i + 1 %}
@@ -73,7 +74,7 @@
                 {% else %}
                     <label for="{{ question.id }}:{{ i }}">{{ question.content }}</label>
                     <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
-                           value="{{ question.answer ? question.answer.choice : '' }}"/>
+                           value="{{ question|question_value() }}"/>
                 {% endif %}
             {% endif %}
         {% else %}
@@ -92,10 +93,14 @@
                         {% for label, textbox in question.choices %}
                             <div>
                                 <input class="{{ type }}" type="{{ type }}" id="{{ question.id }}:{{ i }}"
-                                       name="{{ name }}" value="{{ i }}">
+                                       name="{{ name }}" value="{{ i }}"
+                                       checked="{# FIXME #}"/>
                                 <label class="label label-{{ type }}" for="{{ question.id }}:{{ i }}">
                                     {{ label }}
-                                    {% if textbox %} <input class="hideable" type="text" id="{{ question.id }}:{{ i }}:text" name="{{ question.id ~ 'text' }}">{% endif %}
+                                    {% if textbox %}
+                                        <input class="hideable" type="text" id="{{ question.id }}:{{ i }}:text" name="{{ question.id ~ 'text' }}"
+                                               value="{# FIXME #}" />
+                                    {% endif %}
                                 </label>
 
                             </div>
@@ -104,7 +109,7 @@
                     {% elseif question.type == 'text' %}
                         <div>
                             <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
-                                   value="{{ question.answer ? question.answer.choice : '' }}"/>
+                                   value="{{ question|question_value() }}"/>
                         </div>
                     {% endif %}
                     {% if question.comment %}
@@ -126,11 +131,11 @@
     <p>Done by five students from EPITA: Achraf El Khachchai, Leo Champion, Nathan Quintard, Gonzague De Gineste, Justin Rerolle</p>
 </footer>
 <a id="button-co" class="float">
-    <img class="sunmoon" src="data:image/svg+xml;base64,
+    <img class="sunmoon" alt="nightmode" src="data:image/svg+xml;base64,
 PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDQ5NiA0OTYuMDk4MzEiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9IiI+PGc+PHBhdGggZD0ibTI0OC4xNDg0MzggNzJjLTcxLjE4MzU5NC4wMTU2MjUtMTM1LjM1NTQ2OSA0Mi44OTg0MzgtMTYyLjU5NzY1NyAxMDguNjY0MDYyLTI3LjI0NjA5MyA2NS43NjU2MjYtMTIuMjAzMTI1IDE0MS40NjQ4NDQgMzguMTE3MTg4IDE5MS44MTY0MDdsMjQ4Ljk2MDkzNy0yNDguOTYwOTM4Yy0zMi45ODQzNzUtMzMuMDU0Njg3LTc3Ljc4NTE1Ni01MS41OTc2NTYtMTI0LjQ4MDQ2OC01MS41MTk1MzF6bTAgMCIgZmlsbD0iIzU3YTRmZiIgZGF0YS1vcmlnaW5hbD0iIzU3QTRGRiIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojRkJGQkZCIiBkYXRhLW9sZF9jb2xvcj0iI0Y3RjdGNyI+PC9wYXRoPjxwYXRoIGQ9Im0yNDguMTQ4NDM4IDQyNGM2Ni4wNjY0MDYuMDAzOTA2IDEyNi41NzAzMTItMzYuOTg4MjgxIDE1Ni42NzU3ODEtOTUuNzk2ODc1IDMwLjEwOTM3NS01OC44MDQ2ODcgMjQuNzQ2MDkzLTEyOS41MTk1MzEtMTMuODgyODEzLTE4My4xMTMyODFsLTI0NC45NDUzMTIgMjQ2LjI0NjA5NGMyOS43OTY4NzUgMjEuMjk2ODc0IDY1LjUyMzQzNyAzMi43MjI2NTYgMTAyLjE1MjM0NCAzMi42NjQwNjJ6bTAgMCIgZmlsbD0iIzU3YTRmZiIgZGF0YS1vcmlnaW5hbD0iIzU3QTRGRiIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojRkJGQkZCIiBkYXRhLW9sZF9jb2xvcj0iI0Y3RjdGNyI+PC9wYXRoPjxnIGZpbGw9IiMwMDRmYWMiPjxwYXRoIGQ9Im0yNDguMTQ4NDM4IDU2YzQuNDE3OTY4IDAgOC0zLjU4MjAzMSA4LTh2LTQwYzAtNC40MTc5NjktMy41ODIwMzItOC04LTgtNC40MTc5NjkgMC04IDMuNTgyMDMxLTggOHY0MGMwIDQuNDE3OTY5IDMuNTgyMDMxIDggOCA4em0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiIHN0eWxlPSJmaWxsOiMwMDAwMDAiPjwvcGF0aD48cGF0aCBkPSJtOC4xNDg0MzggMjU2aDQwYzQuNDE3OTY4IDAgOC0zLjU4MjAzMSA4LThzLTMuNTgyMDMyLTgtOC04aC00MGMtNC40MTc5NjkgMC04IDMuNTgyMDMxLTggOHMzLjU4MjAzMSA4IDggOHptMCAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIiBzdHlsZT0iZmlsbDojMDAwMDAwIj48L3BhdGg+PHBhdGggZD0ibTEwMS4wNjY0MDYgMTEyLjIzMDQ2OWMzLjE0MDYyNSAzLjAzNTE1NiA4LjEyODkwNiAyLjk4ODI4MSAxMS4yMTQ4NDQtLjA5NzY1NyAzLjA4NTkzOC0zLjA4NTkzNyAzLjEyODkwNi04LjA3NDIxOC4wOTc2NTYtMTEuMjEwOTM3bC0yOC4yODEyNS0yOC4yODEyNWMtMi4wMDc4MTItMi4wODIwMzEtNC45ODA0NjgtMi45MTQwNjMtNy43NzczNDQtMi4xODM1OTQtMi43OTY4NzQuNzM0Mzc1LTQuOTgwNDY4IDIuOTE3OTY5LTUuNzE0ODQzIDUuNzE0ODQ0LS43MzA0NjkgMi43OTY4NzUuMTAxNTYyIDUuNzczNDM3IDIuMTgzNTkzIDcuNzgxMjV6bTAgMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiIgc3R5bGU9ImZpbGw6IzAwMDAwMCI+PC9wYXRoPjxwYXRoIGQ9Im00OTMuODA0Njg4IDIuMzQzNzVjLTMuMTI1LTMuMTIxMDk0LTguMTg3NS0zLjEyMTA5NC0xMS4zMTI1IDBsLTExMC4xMzY3MTkgMTEwLjEzNjcxOWMtNzIuNTIzNDM4LTY2LjY5OTIxOS0xODQuNzM4MjgxLTY0LjM1NTQ2OS0yNTQuNDEwMTU3IDUuMzE2NDA2LTY5LjY3MTg3NCA2OS42NzE4NzUtNzIuMDE1NjI0IDE4MS44ODY3MTktNS4zMTY0MDYgMjU0LjQxMDE1NmwtMTEwLjEzNjcxOCAxMTAuMTM2NzE5Yy0yLjA4MjAzMiAyLjAwNzgxMi0yLjkxNDA2MyA0Ljk4NDM3NS0yLjE4MzU5NCA3Ljc4MTI1LjczNDM3NSAyLjc5Njg3NSAyLjkxNzk2OCA0Ljk4MDQ2OSA1LjcxNDg0NCA1LjcxMDkzOCAyLjc5Njg3NC43MzQzNzQgNS43Njk1MzEtLjEwMTU2MyA3Ljc4MTI1LTIuMTc5Njg4bDQ4MC00ODBjMy4xMjEwOTMtMy4xMjUgMy4xMjEwOTMtOC4xODc1IDAtMTEuMzEyNXptLTQxMy42NTYyNSAyNDUuNjU2MjVjLS4wNjI1LTY2LjUgMzkuMTQ0NTMxLTEyNi43NjU2MjUgOTkuOTYwOTM3LTE1My42NjAxNTYgNjAuODIwMzEzLTI2Ljg5NDUzMiAxMzEuNzg1MTU2LTE1LjM0Mzc1IDE4MC45MzM1OTQgMjkuNDUzMTI1bC0yMzcuMTAxNTYzIDIzNy4xMDE1NjJjLTI4LjIzNDM3NS0zMC44MTI1LTQzLjg2MzI4MS03MS4xMDU0NjktNDMuNzkyOTY4LTExMi44OTQ1MzF6bTAgMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiIgc3R5bGU9ImZpbGw6IzAwMDAwMCI+PC9wYXRoPjxwYXRoIGQ9Im0zOTEuNTcwMzEyIDEzNy4xMTMyODFjLTIuMzQzNzUtLjIwNzAzMS00LjY2MDE1Ni42NDg0MzgtNi4zMDQ2ODcgMi4zMzU5MzhsLTI0NC45NDE0MDYgMjQ2LjI0NjA5M2MtMS42NTYyNSAxLjY2NDA2My0yLjQ5NjA5NCAzLjk3MjY1Ny0yLjMwMDc4MSA2LjMxMjUuMTk5MjE4IDIuMzM5ODQ0IDEuNDE0MDYyIDQuNDc2NTYzIDMuMzI0MjE4IDUuODM5ODQ0IDczLjMzOTg0NCA1Mi4zMTY0MDYgMTczLjc3MzQzOCA0My44Mzk4NDQgMjM3LjMwNDY4OC0yMC4wMzEyNSA2My41MzUxNTYtNjMuODcxMDk0IDcxLjQ4MDQ2OC0xNjQuMzQ3NjU2IDE4Ljc3MzQzNy0yMzcuNDEwMTU2LTEuMzcxMDkzLTEuOTAyMzQ0LTMuNTExNzE5LTMuMTA5Mzc1LTUuODU1NDY5LTMuMjkyOTY5em0wIDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiIHN0eWxlPSJmaWxsOiMwMDAwMDAiPjwvcGF0aD48L2c+PC9nPiA8L3N2Zz4=" />
 </a>
 <a id='save' class="float float-bottom">
-    <img class="sunmoon" src="img/save.png"/>
+    <img class="sunmoon" alt="save" src="img/save.png"/>
 </a>
 <script class="save" src='/script.js'></script>
 </body>
