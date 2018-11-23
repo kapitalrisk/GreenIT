@@ -320,7 +320,6 @@ body {
 .radio:checked + .label::before {
   margin-right: 1rem;
   border: 0.25rem solid #009688;
-  background-color: var(--grey-text)
 }
 
 
@@ -467,7 +466,6 @@ body {
 
 .radio-table:checked + .label-table {
     border-color: var(--accent-color);
-    background-color: var(--grey-text);
 }
 
 .label-table:hover {
