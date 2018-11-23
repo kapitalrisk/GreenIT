@@ -1,3 +1,4 @@
+{% spaceless %}
 <div class="category color-{{ question.categoryClass }}">
     <div class='question-header-container'>
         <div class='left-container'>
@@ -20,3 +21,4 @@
             <div class='left-bar bcolor-{{ category | lower | replace({' ': '-'}) }}'></div>
         </div>
         <div>
+{% endspaceless %}
