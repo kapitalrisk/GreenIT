@@ -27,7 +27,10 @@ class TwigForm extends AbstractExtension
     public function getValue(FormQuestion $question, $choice = "", $elem = "choice")
     {
         if (($answer = $question->getAnswer()) === null)
+        {
+            //echo "null";
             return "";
+        }
 
         if ($question->getType() == "text")
         {

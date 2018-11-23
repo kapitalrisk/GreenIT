@@ -67,7 +67,7 @@
                                     type="{{ type }}"
                                     id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
                                     value="{{ i }}"
-                                    checked="{# FIXME #}">
+                                    {{ question|question_value(i, 'choice') }}>
                             <label class="label-table" for="{{ question.id }}:{{ i }}"></label>
                         </div>
                         {% set i = i + 1 %}
@@ -75,7 +75,7 @@
                 {% else %}
                     <label for="{{ question.id }}:{{ i }}">{{ question.content }}</label>
                     <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
-                           value="{{ question|question_value() }}"/>
+                           value="{{ question|question_value() }}" />
                 {% endif %}
             {% endif %}
         {% else %}
@@ -96,12 +96,12 @@
                             <div>
                                 <input class='{{ type }}' type="{{ type }}" id="{{ question.id }}:{{ i }}"
                                        name="{{ name }}" value="{{ i }}"
-                                       checked="{# FIXME #}"/>
+                                        {{ question|question_value(i, 'choice') }}/>
                                 <label class='label label-{{ type }}' for="{{ question.id }}:{{ i }}">
                                     {{ label }}
                                     {% if textbox %}
-                                        <input class="hideable" type="text" id="{{ question.id }}:{{ i }}:text" name="{{ question.id ~ 'text' }}"
-                                               value="{# FIXME #}" />
+                                        <input class="hideable" type="text" id="{{ question.id }}:{{ i }}:text" name="{{ question.id ~ 'text' ~ i }}"
+                                               value="{{ question|question_value(i, 'text') }}" />
                                     {% endif %}
                                 </label>
 
@@ -111,7 +111,7 @@
                     {% elseif question.type == 'text' %}
                         <div>
                             <input type="text" id="{{ question.id }}:{{ i }}" name="{{ question.id }}"
-                                   value="{{ question|question_value() }}"/>
+                                   value="{{ question|question_value() }}" />
                         </div>
                     {% endif %}
                     {% if question.comment %}

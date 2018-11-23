@@ -40,6 +40,7 @@ class MainController extends Controller
 
         if ($request->getMethod() == "POST")
         {
+            print_r($_POST);
             $arrKeys = array_filter($_POST, function ($k) { return $k != ""; }); // get array keys for answered questions
             $questions = $em->getRepository(FormQuestion::class)->getAnsweredQuestions($arrKeys);
 
@@ -49,16 +50,18 @@ class MainController extends Controller
                 if ($res === null)
                 {
                     $res = new Answer();
+                    $res->setQuestion($q);
+                    $res->setUser($slug);
                 }
                 if (is_array($_POST[$q->getId()]))
                 {
-                    $res->setChoice(join(";", $_POST[$q][0]));
+                    $res->setChoice(join(";", $_POST[$q->getId()]));
                 }
                 else
                 {
-                    $res->setQuestion($q);
-                    $res->setUser($slug);
                     $res->setChoice($_POST[$q->getId()]);
+                    if (isset($_POST[$q->getId().'text'.$res->getChoice()]))
+                        $res->setContent($_POST[$q->getId().'text'.$res->getChoice()]);
                 }
                 $em->persist($res);
             }
