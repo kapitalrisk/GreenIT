@@ -79,24 +79,43 @@ body {
     .introduction {
         width: 80%;
         margin-left: 10%;
+        border: solid #465 1px;
+        padding: 0.4em 1em;
+        border-radius: 4px;
+        background-color: #465;
     }
 }
 @media (max-width: 768px) {
     .introduction {
         margin-left: 1em;
         margin-right: 1em;
+        border: solid #465 1px;
+        padding: 0.4em 1em;
+        border-radius: 4px;
+        background-color: #465;
     }
 }
 
 .introduction p {
     color: var(--grey-text);
     text-align: justify;
-    border: solid #465 1px;
+    margin-top: 10px;
+}
+.introduction pre > a {
+    color: #000;
+}
+.introduction pre {
+    display: block;
+    border: solid var(--grey-text) 1px;
+    background: var(--grey-text);
     padding: 0.4em 1em;
     border-radius: 4px;
-    background-color: #465;
+    margin-top:5px;
 }
-
+#intro-foot {
+    margin-top:15%;
+    margin-bottom: 20%;
+}
 
 @media (max-width: 768px) {
     .content {
@@ -218,7 +237,7 @@ body {
     -----------------
 **/
 
-.color-infrastructures-informatiques {
+.color-system-infrastructure {
     color: #0C5884;
 }
 
@@ -252,7 +271,7 @@ body {
     -----------------
 **/
 
-.bcolor-infrastructures-informatiques {
+.bcolor-system-infrastructure {
     background-color: #0C5884;
 }
 
