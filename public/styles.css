@@ -434,15 +434,12 @@ body {
     bottom: 30px;
     background-color: var(--accent-color)
 }
-.sunmoon {
-    margin-top: 5px; 
-    width: 40px;
-    height: 40px;
-}
+
 .sunmoon {
     margin-top: 10px; 
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 
 .my-float{
