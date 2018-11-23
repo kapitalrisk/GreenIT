@@ -13,6 +13,18 @@
     font-family: 'Lato', sans-serif;
 }
 
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--grey-text);
+    font-size: 1.2em;
+}
+input[type=text]:hover {
+    background-color: rgba(136, 136, 136, 0.1);
+}
+input[type=text]:hover {
+    background-color: rgba(136, 136, 136, 0.1);
+}
 
 h1 {
     color: var(--primary-color);
