@@ -7,7 +7,7 @@ on the occasion of the Design4Green challenge which takes place every year.
 What is Design4Green ?
 ----
 
-It is a challenge of eco-design. Compete the best green developer and tomorrow’s talent on a specific subject made by
+It is a competition for the best green developer and tomorrow’s talent on a specific subject made by
 AGIT during 48 hours non stop which objective is to encourage an federate both students and professionals for sustainable IT.
 
 This project
