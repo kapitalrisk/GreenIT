@@ -27,6 +27,7 @@ Technology used
 ---
 1. We used Python to parse the list of questions provided in an Excel file and generate the database contents.
 2. We used SQLite as DBMS for its modularity, lightness and large load support.
-3. We used PHP 7.1 with Symfony 4 to generate the form and interface with the database.
+3. We used PHP 7.1 with Symfony 4 to generate the form and to interface the database.
 4. The DOM is generated using the Twig rendering engine
 5. As we belived that Javascript is a huge energy consumer for the client, we decided not to use any Javascript library and use it only when it was strictly essential (when manipulating the DOM or sending form's data to the back-end in order to avoid re-rendering the page)
+6. CSS3 was used to style the application, we designed a dark interface as we belived that it would require less energy from the user's screen.
